@@ -2,7 +2,8 @@
 Choose a folder and have your Chromebook automatically shuffle through the wallpapers in it!
 
 **IMPORTANT:**
-The files in the assets folder (the icons) are replaced by empty icons in order to comply with the copyright rules from Flaticon. The packaged apps in the Chrome Web Store and the .crx files in the releases
+
+The files in the assets folder (the icons) are replaced with empty icons in order to comply with the copyright rules from Flaticon. The packaged apps in the Chrome Web Store and the .crx files in the [releases](https://github.com/CiriousJoker/ShufflePaper/releases/latest) still contain the icons, but I'm not allowed to distribute them as files.
 
 <img src="screenshots/screenshot.png"/>
 
