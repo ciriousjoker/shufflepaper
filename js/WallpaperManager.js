@@ -7,22 +7,27 @@ function loadNextWallpaper() {
           getNextId(_currentId, numbertotal, function(nextId) {
             readFolder(rootDir, function(fileEntry, number) {
               if(number == nextId) {
-                console.log("New wallpaper id: " + nextId);
                 // Read the file as an arraybuffer
                 readFileAsArrayBuffer(fileEntry, function(buf) {
-                  // Set the arraybuffer as a wallpaper
-                  chrome.wallpaper.setWallpaper(
-                  {
-                    'data': buf.target.result,
-                    'filename': fileEntry.name,
-                    'layout': 'CENTER_CROPPED'
-                  }, function() {
+                  var regCheckFileExtension = new RegExp('(.jpg|.jpeg|.jfif|.png)', 'i');
+                  if(regCheckFileExtension.test(fileEntry.name) && isdef(buf)) {
+                    // Set the arraybuffer as a wallpaper
                     console.log("New wallpaper: " + fileEntry.name);
-                    
-                    // Store the new current_id as a SharedPreference
+                    chrome.wallpaper.setWallpaper(
+                    {
+                      'data': buf.target.result,
+                      'filename': fileEntry.name,
+                      'layout': 'CENTER_CROPPED'
+                    }, function() {
+                      // Store the new current_id as a SharedPreference
+                      prefs.set(Key.current_file_id, nextId);
+                      prefs.apply();
+                    }); 
+                  } else {
+                    // Store the new current_id as a SharedPreference so that it doesn't try the same file over and over
                     prefs.set(Key.current_file_id, nextId);
                     prefs.apply();
-                  });
+                  }
                 }); 
               }
             });
@@ -37,7 +42,7 @@ function loadNextWallpaper() {
 // Pick the next file id based on the user's preferences
 function getNextId(currentId, filecount, callback) {
   prefs.get(Key.choose_random, function(is_random) {
-    if(is_random) {
+    if(isdef(is_random) && is_random === true) {
       callback(randomMinMax(0, filecount - 1));
     } else {
       if(!isdef(currentId)) {
@@ -50,18 +55,24 @@ function getNextId(currentId, filecount, callback) {
         callback(newId);
       }
     }
-  });
+  },
+  // optional flag to return even if the result would be "undefined"
+  true);
 }
 
 // Returns an ArrayBuffer with the file's content
 function readFileAsArrayBuffer(fileEntry, callback) {
-  fileEntry.file(function(file) {
-    var fileReader = new FileReader();
-    fileReader.onloadend = function(arybf) {
-      callback(arybf);
-    };
-    fileReader.readAsArrayBuffer(file);
-  });
+  if(fileEntry.isFile) {
+    fileEntry.file(function(file) {
+      var fileReader = new FileReader();
+      fileReader.onloadend = function(arybf) {
+        callback(arybf);
+      };
+      fileReader.readAsArrayBuffer(file);
+    });
+  } else {
+    callback();
+  }
 }
 
 // Returns the file count of the folder

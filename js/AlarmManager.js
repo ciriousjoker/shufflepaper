@@ -1,11 +1,14 @@
-function ALARM() {}
+function AlarmManager() {}
+AlarmManager.ID = function() {};
+AlarmManager.INTERVAL = function() {};
+
+
 
 // Used as an identifier for the alarm used
 // to change the wallpaper every x minutes
-ALARM.WALLPAPER_INTERVAL = "wallpaper_change_interval";
+AlarmManager.ID.Wallpaper = "wallpaper_change_interval";
+AlarmManager.INTERVAL.Wallpaper = 15;
 
-
-function AlarmManager() {}
 
 AlarmManager.set = function(id, interval) {
   chrome.alarms.create(id, {

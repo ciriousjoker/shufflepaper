@@ -54,9 +54,9 @@ $(document).ready(function() {
     prefs.apply();
     
     if(!this.checked) {
-      AlarmManager.clear(ALARM.WALLPAPER_INTERVAL);
+      AlarmManager.clear(AlarmManager.ID.Wallpaper);
     } else {
-      AlarmManager.set(ALARM.WALLPAPER_INTERVAL, 0.1);
+      AlarmManager.set(AlarmManager.ID.Wallpaper, AlarmManager.INTERVAL.Wallpaper);
     }
   });
 });
@@ -85,10 +85,12 @@ function loadDirPath() {
   getRoot(function(rootDir) {
     if(!isdef(rootDir)) {
       $('#tv_chosen_folder').html("Please speficy a folder <i class=\"material-icons\">keyboard_arrow_right</i>");
+      $('#tv_chosen_folder').fadeIn();
     } else {
-      chrome.fileSystem.getDisplayPath(rootDir, function(path) {
+      getFormattedPath(rootDir, function(path) {
         $('#tv_chosen_folder').html(path);
-      }); 
+        $('#tv_chosen_folder').fadeIn();
+      });
     }
   },
   // flag to return even if the result would be 'undefined'
