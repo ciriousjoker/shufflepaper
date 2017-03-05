@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "ShufflePaper",
+  "version": "0.9.0",
+  "description": "Choose a folder and have your Chromebook automatically shuffle through the wallpapers in it!",
+  "minimum_chrome_version": "38",
+
+  "icons": {
+    "16":   "assets/ic_launcher_16.png",
+    "48":   "assets/ic_launcher_48.png",
+    "128":  "assets/ic_launcher_128.png",
+    "512":  "assets/ic_launcher_512.png"
+  },
+  "permissions": [
+    "notifications",
+    "wallpaper",
+    "alarms",
+    "storage",
+    {
+      "fileSystem": [
+        "write", 
+        "retainEntries",
+        "directory"
+      ]
+    }
+  ],
+  "app": {
+    "background": {
+      "scripts": [
+        "js/Helper.js",
+        "js/KeyConstants.js",
+        "js/SharedPreferences.js",
+        "js/WallpaperManager.js",
+        "js/BackgroundService.js"
+      ]
+    }
+  },
+  "offline_enabled": true
+}

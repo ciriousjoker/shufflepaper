@@ -1,0 +1,38 @@
+/*
+Material Switches:
+  Simple change from left-aligned to right aligned
+*/
+.mdl-switch__thumb {
+  right: 16px;
+  left: unset;
+  transition-property: right; }
+  .mdl-switch.is-checked .mdl-switch__thumb {
+    right: 0px;
+    left: unset; }
+.mdl-switch__track {
+  right: 0px;
+  left: unset;
+}
+.mdl-switch.is-upgraded {
+    padding-left: 0px; }
+    
+/*
+Cards:
+  Remove some padding between title and text
+*/
+.mdl-card__title {
+  padding-bottom: 4px;
+}
+.mdl-card__supporting-text {
+  padding-top: 4px;
+}
+
+.container-fluid {
+    position: absolute;
+    bottom: 16px;
+    top: 16px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
