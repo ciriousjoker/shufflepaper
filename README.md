@@ -3,12 +3,18 @@ Choose a folder and have your Chromebook automatically shuffle through the wallp
 
 **IMPORTANT:**
 
-The files in the assets folder (the icons) are replaced with empty icons in order to comply with the copyright rules from Flaticon. The packaged apps in the Chrome Web Store and the .crx files in the [releases](https://github.com/CiriousJoker/ShufflePaper/releases/latest) still contain the icons, but I'm not allowed to distribute them as files.
+The files in the assets folder (the icons) are replaced with empty icons in order to comply with the copyright rules of Flaticon. The packaged apps in the Chrome Web Store and the .crx files in the [releases](https://github.com/CiriousJoker/ShufflePaper/releases/latest) still contain the icons, but I'm not allowed to distribute them as files.
 
-<img src="screenshots/screenshot.png"/>
+## Screenshots
+
+<img src="screenshots/en/ScreenshotGeneral.png"/>
+
+|                      Delay                       |                      About                       |
+| ------------------------------------------------ | ------------------------------------------------ |
+| <img src="screenshots/en/ScreenshotDelay.png"/>  | <img src="screenshots/en/ScreenshotAbout.png"/>  |
 
 ## Installation
-<a href='https://chrome.google.com/webstore/detail/shufflepaper-randomize-yo/ghcndibmdbeipgggdddmecagpkllglpj?utm_campaign=PartBadge'><img alt='Get it on the Chrome Webstore' src='https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png' height="56px"/></a>
+<a href='https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj?utm_campaign=PartBadge'><img alt='Get it on the Chrome Webstore' src='https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png' height="56px"/></a>
 
 Only Chrome OS devices are supported as the [wallpaper api](https://developer.chrome.com/apps/wallpaper) isn't available on other platforms.
 
