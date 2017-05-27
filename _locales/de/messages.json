@@ -1,0 +1,120 @@
+{
+  "appname": {
+    "message": "ShufflePaper",
+    "description": "Name der App"
+  },
+  "menu_headline": {
+    "message": "Menü",
+    "description": "Überschrift des Menüs"
+  },
+  "menu_left_1": {
+    "message": "Allgemeine Einstellungen",
+    "description": "Erster Menüeintrag"
+  },
+  "menu_left_2": {
+    "message": "Tastenkürzel",
+    "description": "Zweiter Menüeintrag"
+  },
+  "menu_right_1": {
+    "message": "Über",
+    "description": "Erster Eintrag im rechten Menü"
+  },
+  "menu_right_2": {
+    "message": "Schließen",
+    "description": "Zweiter Eintrag im rechten Menü"
+  },
+  "error_no_folder_specified": {
+    "message": "Bitte wähle einen Ordner aus <i class=\"material-icons\">keyboard_arrow_right</i>",
+    "description": "Platzhalter für den gewählten Pfad"
+  },
+  "error_invalid_path": {
+    "message": "Der gewählte Ordner ist nicht zulässig",
+    "description": "Fehlermeldung wenn ein unzulässiger Pfad gewählt wurde (z.B. ein zip Archiv)"
+  },
+  "error_invalid_interval": {
+    "message": "Bitte wähle eine Zahl zwischen 1 und 99!",
+    "description": "Fehlermeldung wenn eine unerlaubte Zahl ins Intervallfeld eingetragen wurde"
+  },
+  "tooltip_share": {
+    "message": "Teile diese App über Social Media",
+    "description": "Tooltip für den Teilen-Button"
+  },
+  "tooltip_share_clicked": {
+    "message": "Link wurde in die Zwischenablage kopiert!",
+    "description": "Tooltip für den Teilen-Button nachdem er geklickt wurde"
+  },
+  "tooltip_refresh": {
+    "message": "Ändere sofort den Hintergrund",
+    "description": "Tooltip für den Refresh-Button"
+  },
+  "tooltip_refresh_clicked": {
+    "message": "Wallpaper wurde geändert!",
+    "description": "Tooltip für den Refresh-Button nachdem er geklickt wurde"
+  },
+  "icon_actionbar_1": {
+    "message": "share",
+    "description": "Icon des ersten Buttons neben dem rechten Menü (von rechts aus)"
+  },
+  "icon_actionbar_2": {
+    "message": "refresh",
+    "description": "Icon des zweiten Buttons neben dem rechten Menü (von rechts aus)"
+  },
+  "icon_menu_right": {
+    "message": "more_vert",
+    "description": "Icon des rechten Menüs"
+  },
+  "wallpaper_location_headline": {
+    "message": "Wallpaper-Pfad",
+    "description": "Überschrift der Seite mit den allgemeinen Einstellungen"
+  },
+  "keyboard_shortcuts_headline": {
+    "message": "Tastenkürzel",
+    "description": "Überschrift der Seite mit den Einstellungen für die Tastenkürzel"
+  },
+  "btn_choose_folder": {
+    "message": "Öffnen",
+    "description": "Beschriftung für den Button um einen Ordner zu wählen"
+  },
+  "property_headline_0": {
+    "message": "Neuer Hintergrund alle&nbsp;",
+    "description": "Erster Eintrag in den allgemeinen Einstellungen"
+  },
+  "property_headline_1": {
+    "message": "Wähle die Hintergründe zufällig",
+    "description": "Zweiter Eintrag in den allgemeinen Einstellungen"
+  },
+  "keyboard_headline_1": {
+    "message": "[Strg] + W to change the wallpaper instantly",
+    "description": "Erster Eintrag in den Tastatur-Einstellungen"
+  },
+  "keyboard_headline_0": {
+    "message": "[Strg] + P to pin the current wallpaper until you select a new one",
+    "description": "Zweiter Eintrag in den Tastatur-Einstellungen"
+  },
+  "about_text": {
+    "message": "Dieses Projekt ist auf <a href=\"https://github.com/CiriousJoker/ShufflePaper\" target=\"_blank\">Github</a> und im <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj\" target=\"_blank\">Chrome Webstore</a>.<br>Wenn du diese App mit Freunden teilen willst, kannst du den Button oben rechts in der Ecke benutzen!<br>Außerdem würde es mich sehr freuen wenn du diese App <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj/reviews\" target=\"_blank\">bewerten</a> könntest, denn ich habe sehr viel Arbeit reingesteckt :)",
+    "description": "Text in der 'Über'-Seite"
+  },
+  "array_interval_unit": {
+    "message": "[\"Minuten\",\"Stunden\",\"Tage\"]",
+    "description": "Array mit den Interval-Einheiten"
+  },
+  "copyright": {
+    "message": "$name$ $symbol$ $year$",
+    "description": "Genutzt um den Copyright-Text zusammenzusetzen",
+    "placeholders": {
+      "symbol": {
+        "content": "\u00A9",
+        "example": "Das Copyright-Symbol"
+      },
+      "name": {
+        "content": "$1",
+        "example": "A name"
+      },
+      "year": {
+        "content": "$2",
+        "example": "The current year"
+      }
+    }
+  }
+}

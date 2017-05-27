@@ -10146,7 +10146,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   margin: 0;
   padding: 4px 0;
   width: 100%;
-  background: none;
+  background: none;rgb(63,81,181)
   text-align: left;
   color: inherit; }
   .mdl-textfield__input[type="number"] {

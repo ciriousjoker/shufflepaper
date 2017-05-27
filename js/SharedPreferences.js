@@ -42,8 +42,11 @@ prefs.set = function(name, value) {
 };
 
 // Apply all the changes made to the in-memory version
-prefs.apply = function() {
+prefs.apply = function(callback) {
   chrome.storage.sync.set({"shared_prefs": prefs.SharedPreferences}, function() {
     console.log('Settings saved');
+    if(callback) {
+      callback();
+    }
   });
 };

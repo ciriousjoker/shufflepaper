@@ -1,0 +1,120 @@
+{
+  "appname": {
+    "message": "ShufflePaper",
+    "description": "Name of the app"
+  },
+  "menu_headline": {
+    "message": "Menu",
+    "description": "Headline for the hamburger menu"
+  },
+  "menu_left_1": {
+    "message": "General Settings",
+    "description": "First menu item"
+  },
+  "menu_left_2": {
+    "message": "Keyboard Shortcuts",
+    "description": "Second menu item"
+  },
+  "menu_right_1": {
+    "message": "About",
+    "description": "First three-dots menu item"
+  },
+  "menu_right_2": {
+    "message": "Close",
+    "description": "Second three-dots menu item"
+  },
+  "error_no_folder_specified": {
+    "message": "Please specify a folder <i class=\"material-icons\">keyboard_arrow_right</i>",
+    "description": "Shown when the folder path is empty"
+  },
+  "error_invalid_path": {
+    "message": "The selected folder is invalid",
+    "description": "Shown when the user selects an invalid path (eg. due to selecting a zip-archive)"
+  },
+  "error_invalid_interval": {
+    "message": "Please enter a number between 1 and 99!",
+    "description": "Shown when an invalid number is entered into the interval field"
+  },
+  "tooltip_share": {
+    "message": "Share this app through social media",
+    "description": "Tooltip for the share button"
+  },
+  "tooltip_share_clicked": {
+    "message": "Copied link to clipboard!",
+    "description": "Tooltip for the share button when it's clicked"
+  },
+  "tooltip_refresh": {
+    "message": "Instantly load a new wallpaper",
+    "description": "Tooltip for the refresh button"
+  },
+  "tooltip_refresh_clicked": {
+    "message": "Loaded a new wallpaper!",
+    "description": "Tooltip for the refresh button when it's clicked"
+  },
+  "icon_actionbar_1": {
+    "message": "share",
+    "description": "Icon for the first button next to three-dots button (from the right)"
+  },
+  "icon_actionbar_2": {
+    "message": "refresh",
+    "description": "Icon for the second button next to three-dots button (from the right)"
+  },
+  "icon_menu_right": {
+    "message": "more_vert",
+    "description": "Icon for the three-dots button"
+  },
+  "wallpaper_location_headline": {
+    "message": "Wallpaper location",
+    "description": "Headline for the general settings page"
+  },
+  "keyboard_shortcuts_headline": {
+    "message": "Keyboard shortcuts",
+    "description": "Headline for the keyboard shortcuts page"
+  },
+  "btn_choose_folder": {
+    "message": "Choose",
+    "description": "Caption on the button to choose a folder"
+  },
+  "property_headline_0": {
+    "message": "New wallpaper every&nbsp;",
+    "description": "First settings item in the general settings"
+  },
+  "keyboard_headline_1": {
+    "message": "[Ctrl] + W to change the wallpaper instantly",
+    "description": "First item in the keyboard settings"
+  },
+  "keyboard_headline_0": {
+    "message": "[Ctrl] + P to pin the current wallpaper until you select a new one",
+    "description": "Second item in the keyboard settings"
+  },
+  "property_headline_1": {
+    "message": "Pick wallpapers randomly",
+    "description": "Second settings item in the general settings"
+  },
+  "about_text": {
+    "message": "This project is available on <a href=\"https://github.com/CiriousJoker/ShufflePaper\" target=\"_blank\">Github</a> and in the <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj\" target=\"_blank\">Chrome Webstore</a>.<br>If you want to share this app, feel free to use the little button in the upper right corner of this window!<br>Also, I would really appreciate it if you <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj/reviews\" target=\"_blank\">rated</a> this app as I put a lot of effort into it :)",
+    "description": "Text shown in the about section"
+  },
+  "array_interval_unit": {
+    "message": "[\"minutes\",\"hours\",\"days\"]",
+    "description": "Array used to store time interval units"
+  },
+  "copyright": {
+    "message": "$name$ $symbol$ $year$",
+    "description": "Build a copyright string out of a name and a year",
+    "placeholders": {
+      "symbol": {
+        "content": "\u00A9",
+        "example": "The copyright symbol"
+      },
+      "name": {
+        "content": "$1",
+        "example": "A name"
+      },
+      "year": {
+        "content": "$2",
+        "example": "The current year"
+      }
+    }
+  }
+}

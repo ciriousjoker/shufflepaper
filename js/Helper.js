@@ -11,7 +11,7 @@ function isdef(o) {
 }
 
 function getRoot(callback, return_anyway) {
-  prefs.get(Key.dir_id, function(result) {
+  prefs.get(Constants.Key.dir_id, function(result) {
     if(isdef(result)) {
       // Try to load the folder using the key
       chrome.fileSystem.isRestorable(result, function (is_recoverable) {
@@ -32,32 +32,52 @@ function getRoot(callback, return_anyway) {
 }
 
 function getFormattedPath(dir, callback) {
+  // TODO: Create constants for folder prefixes
   chrome.fileSystem.getDisplayPath(dir, function(path) {
     // eg. /special/drive-[SOME ID]/root/
-    var regIsMyDrive = new RegExp('\/special\/drive-\\w*\/root\/');
+    var regIsMyDrive = new RegExp('\/special\/drive-\\w*\/root');
     
     // eg. /special/drive-[SOME ID]/other/
     var regIsShared = new RegExp('\/special\/drive-\\w*\/other\/');
     
     // eg. /media/removable/My Usb/subfolder
-    var regIsExternal = new RegExp('\/media\/removable');
+    var regIsExternal = new RegExp('\/media\/removable/');
     
     // eg /provided/[SOME ID]:chrome-extension_[SOME ID]_[SOME STORAGE NUMBER]:Persistent::::::::::::::chrome_extension:::::::::::::::[MOUNTED FOLDER NAME]:[SOME ID]/subfolders
     var regIsProvided = new RegExp('\/provided\/.*::::::::::::::chrome_extension:::::::::::::::');
     
+    // eg /provided/[SOME ID]:[ESCAPED ZIP PATH]:[SOME ID]/subfolders
+    var regIsCompressed = new RegExp('\/provided\/.*:');
+    
+    // eg ~/Downloads/subfolders
+    var regIsDownloads = new RegExp('~\/Downloads\/');
+    
+    var formatted_path, SubPath, isValid = true;
     if (regIsMyDrive.test(path)) {
-      callback(path.replace(regIsMyDrive, "~/My Drive/"));
+      formatted_path = path.replace(regIsMyDrive, "My Drive");
     } else if (regIsShared.test(path)) {
-      callback(path.replace(regIsShared, "~/Shared/"));
+      formatted_path = path.replace(regIsShared, "Shared/");
     } else if (regIsExternal.test(path)) {
-      callback(path.replace(regIsExternal, "~"));
+      formatted_path = path.replace(regIsExternal, "");
     } else if (regIsProvided.test(path)) {
-      var FormattedStart = path.replace(regIsProvided, "~/");                         // Returns [MOUNTED FOLDER NAME]:[SOME ID]/subfolders
+      var FormattedStart = path.replace(regIsProvided, "");                           // Returns [MOUNTED FOLDER NAME]:[SOME ID]/subfolders
       var StorageName = FormattedStart.substring(0, FormattedStart.lastIndexOf(":")); // Returns [MOUNTED FOLDER NAME]
-      var SubPath = FormattedStart.replace(new RegExp('~\/[^\/]*'), "");              // Returns /subfolders
-      callback(StorageName + SubPath);
+      SubPath = FormattedStart.replace(new RegExp('[^\/]*'), "");                     // Returns /subfolders
+      formatted_path = StorageName + SubPath;
+    } else if (regIsCompressed.test(path)) {
+      var RemovedBeginning = path.replace(new RegExp('\/provided\/[^:]*:'), "");      // Returns [ESCAPED ZIP PATH]:[SOME ID]/subfolders
+      var ZipLocation = unescape(RemovedBeginning.replace(new RegExp(':.*'), ""));    // Returns [UNESCAPED ZIP PATH]
+      var ZipName = ZipLocation.replace(new RegExp('.*\/'), "");                      // Returns [ZIP NAME]
+      SubPath = path.replace(new RegExp('.*:[^\/]*'), "");                            // Returns /subfolders
+      formatted_path = ZipName + SubPath;
+      isValid = false;
+    } else if (regIsDownloads.test(path)) {
+      formatted_path = path.replace(new RegExp('~\/'), "");
     } else {
-      callback(path);
+      formatted_path = getString("error_invalid_path");
     }
-  }); 
+    
+    formatted_path = formatted_path.replace(/\//g, '<i class="material-icons" style="font-size: 18px;">keyboard_arrow_right</i>');
+    callback(formatted_path, isValid);
+  });
 }
