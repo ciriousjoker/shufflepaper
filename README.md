@@ -10,7 +10,7 @@ The files in the assets folder (the icons) are replaced with empty icons in orde
 - Button: Manually change wallpaper
 - Optional: Customizable delay between wallpaper changes
 - Optional: Shuffle images randomly
-- 3 different wallpaper modes (stretched, centered & cropped)
+- 3 different wallpaper modes (stretched, centered & centered+cropped)
 
 ## Screenshots (v1.0.0)
 
