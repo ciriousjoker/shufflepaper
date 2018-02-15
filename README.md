@@ -29,4 +29,4 @@ Only Chrome OS devices are supported as the [wallpaper api](https://developer.ch
 
 ## Legal
 
-Icon made by [Popcorns Arts](http://www.flaticon.com/authors/popcorns-arts) from [Flaticon](www.flaticon.com).
+Icon made by [Popcorns Arts](http://www.flaticon.com/authors/popcorns-arts) from [Flaticon](http://www.flaticon.com).
