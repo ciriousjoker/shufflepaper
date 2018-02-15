@@ -79,6 +79,18 @@
     "message": "New wallpaper every&nbsp;",
     "description": "First settings item in the general settings"
   },
+  "property_headline_1": {
+    "message": "Pick wallpapers randomly",
+    "description": "Second settings item in the general settings"
+  },
+  "property_headline_2": {
+    "message": "Wallpaper layout",
+    "description": "Third settings item in the general settings"
+  },
+  "options_layout": {
+    "message": "[\"Stretched\",\"Centered\",\"Cropped\"]",
+    "description": "Array used to store layout options"
+  },
   "keyboard_headline_1": {
     "message": "[Ctrl] + W to change the wallpaper instantly",
     "description": "First item in the keyboard settings"
@@ -86,10 +98,6 @@
   "keyboard_headline_0": {
     "message": "[Ctrl] + P to pin the current wallpaper until you select a new one",
     "description": "Second item in the keyboard settings"
-  },
-  "property_headline_1": {
-    "message": "Pick wallpapers randomly",
-    "description": "Second settings item in the general settings"
   },
   "about_text": {
     "message": "This project is available on <a href=\"https://github.com/CiriousJoker/ShufflePaper\" target=\"_blank\">Github</a> and in the <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj\" target=\"_blank\">Chrome Webstore</a>.<br>If you want to share this app, feel free to use the little button in the upper right corner of this window!<br>Also, I would really appreciate it if you <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj/reviews\" target=\"_blank\">rated</a> this app as I put a lot of effort into it :)",

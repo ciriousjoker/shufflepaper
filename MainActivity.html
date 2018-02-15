@@ -1,211 +1,236 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ShufflePaper</title>
-    
-    <!-- Import jquery -->
-    <script src="lib/jquery/js/jquery-3.1.1.min.js"></script>
-    
-    <!-- Import mdl -->
-    <script src="lib/material-design-lite/js/material.min.js"></script>
-    <link rel="stylesheet" href="lib/material-design-lite/css/material.min.css">
-    <link rel="stylesheet" href="lib/material-design-lite/css/material-icons.css">
-    
-    <!-- Import tether (dependency for bootstrap -->
-    <script src="lib/tether/js/tether.min.js"></script>
-    
-    <!-- Import bootstrap -->
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    
-    <!-- Load page specific styles -->
-    <link rel="stylesheet" href="css/general-styles.css">
-    <link rel="stylesheet" href="css/ColorPalette.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/MainActivity.css">
-    
-    <!-- Load internationalization library -->
-    <script src="js/Strings.js"></script>
-  </head>
-  <body style="display: none;">
-    <div id="AppBar" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header default-primary-color">
-        <div class="mdl-layout__header-row">
-          <!-- Title + Spacer -->
-          <span class="mdl-layout-title"><div class="i18n" data-id="appname"></div></span>
-          <div class="mdl-layout-spacer"></div>
-          
-          <!-- Refresh button -->
-          <button id="btn_refresh_wallpaper" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
-            <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_2"></i>
-          </button>
-          
-          <!-- Tooltip for the refresh button -->
-          <div id="btn_refresh_wallpaper_tooltip" class="mdl-tooltip i18n" for="btn_refresh_wallpaper" data-id="tooltip_refresh"></div>
-          &nbsp;
-          
-          <!-- Share button -->
-          <button id="btn_share_app" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
-            <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_1"></i>
-          </button>
-          
-          <!-- Tooltip for the share button -->
-          <div id="btn_share_app_tooltip" class="mdl-tooltip i18n" for="btn_share_app" data-id="tooltip_share"></div>
-          &nbsp;
 
-          <!-- Three dots -->
-          <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
-            <i class="material-icons i18n" data-id="icon_menu_right"></i>
-          </button>
-          
-          <!-- Three dots menu -->
-          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-              for="demo-menu-lower-right">
-            <li id="link_to_about" class="mdl-menu__item"><div class="i18n" data-id="menu_right_1"></div></li>
-            <li id="btn_close" class="mdl-menu__item"><div class="i18n" data-id="menu_right_2"></div></li>
-          </ul>
-        </div>
-      </header>
-      <!-- Navigation drawer -->
-      <div id="NavigationDrawer" class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><div class="i18n" data-id="menu_headline"></div></span>
-        <nav class="mdl-navigation">
-          <a id="link_to_general_settings" class="mdl-navigation__link"><div class="i18n" data-id="menu_left_1"></div></a>
-          <!--<a id="link_to_keyboard_shortcuts" class="mdl-navigation__link"><div class="i18n" data-id="menu_left_2"></div></a>-->
-        </nav>
+<head>
+  <title>ShufflePaper</title>
+
+  <!-- Import jquery -->
+  <script src="lib/jquery/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Import mdl -->
+  <script src="lib/material-design-lite/js/material.min.js"></script>
+  <link rel="stylesheet" href="lib/material-design-lite/css/material.min.css">
+  <link rel="stylesheet" href="lib/material-design-lite/css/material-icons.css">
+
+  <!-- Import tether (dependency for bootstrap -->
+  <script src="lib/tether/js/tether.min.js"></script>
+
+  <!-- Import bootstrap -->
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Load page specific styles -->
+  <link rel="stylesheet" href="css/general-styles.css">
+  <link rel="stylesheet" href="css/ColorPalette.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/MainActivity.css">
+
+  <!-- Load internationalization library -->
+  <script src="js/Strings.js"></script>
+</head>
+
+<body style="display: none;">
+  <div id="AppBar" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header default-primary-color">
+      <div class="mdl-layout__header-row">
+        <!-- Title + Spacer -->
+        <span class="mdl-layout-title">
+          <div class="i18n" data-id="appname"></div>
+        </span>
+        <div class="mdl-layout-spacer"></div>
+
+        <!-- Refresh button -->
+        <button id="btn_refresh_wallpaper" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
+          <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_2"></i>
+        </button>
+
+        <!-- Tooltip for the refresh button -->
+        <div id="btn_refresh_wallpaper_tooltip" class="mdl-tooltip i18n" for="btn_refresh_wallpaper" data-id="tooltip_refresh"></div>
+        &nbsp;
+
+        <!-- Share button -->
+        <button id="btn_share_app" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
+          <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_1"></i>
+        </button>
+
+        <!-- Tooltip for the share button -->
+        <div id="btn_share_app_tooltip" class="mdl-tooltip i18n" for="btn_share_app" data-id="tooltip_share"></div>
+        &nbsp;
+
+        <!-- Three dots -->
+        <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
+          <i class="material-icons i18n" data-id="icon_menu_right"></i>
+        </button>
+
+        <!-- Three dots menu -->
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+          <li id="link_to_about" class="mdl-menu__item">
+            <div class="i18n" data-id="menu_right_1"></div>
+          </li>
+          <li id="btn_close" class="mdl-menu__item">
+            <div class="i18n" data-id="menu_right_2"></div>
+          </li>
+        </ul>
       </div>
-      
-      <main class="mdl-layout__content">
-        <div class="page-content">
-          <!-- General settings -->
-          <div id="page_settings_general">
-            <div class="container-fluid" style="top: 0px; padding-right: 0px; padding-left: 0px;">
-              
-              <!-- Wallpaper location -->
-              <div class="mdl-shadow--2dp sidepadding">
-                <div class="row" style="padding: 16px 0 0 0;">
-                  <div class="col-8">
-                    <p class="mdl-typography--display-1 i18n" data-id="wallpaper_location_headline"></p>
-                  </div>
-                </div>
-                <div class="row" style="padding: 0 0 16px 0;">
-                  <div class="col-10">
-                      <p id="tv_chosen_folder" class="mdl-typography--title center-vertically primary-text-color" style="height: 100%; overflow: auto; white-space: nowrap;"></p>
-                  </div>
-                  <div class="col-2">
-                    <!-- Button to choose a folder -->
-                    <button id="btn_choose_folder" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect nofocus accent-color text-primary-color i18n" style="width: 100%;" data-id="btn_choose_folder"></button>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="sidepadding">
-                <div class="row">
-                  <div class="col-10 center-vertically">
-                    <span style="font-size: 16px;" class="i18n" data-id="property_headline_0"></span>
-                    <div class="mdl-textfield mdl-js-textfield" style="width: 30px;">
-                      <input id="textfield_Interval" class="mdl-textfield__input" type="number" min="1" max="99">
-                      <label class="mdl-textfield__label" for="textfield_Interval">15</label>
-                      <span class="mdl-textfield__error i18n" data-id="error_invalid_interval"></span>
-                    </div>
-                    &nbsp;
-                    <div class="mdl-textfield mdl-js-textfield" style="width: 64px;">
-                      <div id="select_Interval"></div>
-                    </div>
-                  </div>
-                  <div class="col-2 center-vertically">
-                    <label id="cb_use_interval" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_interval_checkbox">
-                      <input type="checkbox" id="cb_use_interval_checkbox" class="mdl-switch__input">
-                      <span class="mdl-switch__label"></span>
-                    </label>
-                  </div>
-                </div>
-                
-                <div class="row">
-                  <div class="col-10 center-vertically">
-                    <span style="font-size: 16px;" class="i18n" data-id="property_headline_1"></span>
-                  </div>
-                  <div class="col-2 center-vertically">
-                    <label id="cb_choose_random" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_choose_random_checkbox">
-                      <input type="checkbox" id="cb_choose_random_checkbox" class="mdl-switch__input">
-                      <span class="mdl-switch__label"></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Tooltip when the selected folder is invalid -->
-            <div id="tv_chosen_folder_tooltip" class="mdl-tooltip-forced i18n" for="tv_chosen_folder" data-id="error_invalid_path" style="display: none;"></div>
-          </div>
-          
-          <div id="page_settings_keyboard_shortcuts" style="display: none;">
-            <div class="container-fluid" style="top: 0px; padding-right: 0px; padding-left: 0px;">
-              
-              <div class="sidepadding">
-                <div class="row" style="padding: 16px 0 0 0;">
-                  <div class="col-8">
-                    <p class="mdl-typography--display-1 i18n" data-id="keyboard_shortcuts_headline"></p>
-                  </div>
-                </div>
-                
-                
-                <div class="row" style="padding-top: 16px; padding-bottom: 16px;">
-                  <div class="col-10 center-vertically">
-                    <span style="font-size: 16px;" class="i18n" data-id="keyboard_headline_0"></span>
-                  </div>
-                  <div class="col-2 center-vertically">
-                    <label id="cb_use_shortcut_0" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_shortcut_0_checkbox">
-                      <input type="checkbox" id="cb_use_shortcut_0_checkbox" class="mdl-switch__input">
-                      <span class="mdl-switch__label"></span>
-                    </label>
-                  </div>
-                </div>
-                
-                <div class="row" style="padding-top: 16px; padding-bottom: 16px;">
-                  <div class="col-10 center-vertically">
-                    <span style="font-size: 16px;" class="i18n" data-id="keyboard_headline_1"></span>
-                  </div>
-                  <div class="col-2 center-vertically">
-                    <label id="cb_use_shortcut_1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_shortcut_1_checkbox">
-                      <input type="checkbox" id="cb_use_shortcut_1_checkbox" class="mdl-switch__input">
-                      <span class="mdl-switch__label"></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div id="page_about" style="display: none;">
-            <div class="container-fluid center-vertically">
-              <div class="grid" style="padding-top: 64px;">
-                <div class="row">
-                  <div class="col-12 i18n" style="text-align: center;" data-id="about_text">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="container-fluid center-vertically" style="top: unset; bottom: 32px;">
-                <div class="row" style="width: 100%; padding-top: 32px; bottom: 32px;">
-                  <div id="insertCopyright" style="text-align: center; width: 100%;" />
-                  <div id="insertCopyright" style="text-align: center; width: 100%;" />
-                </div>
-            </div>
-          </div>
-      </main>
+    </header>
+    <!-- Navigation drawer -->
+    <div id="NavigationDrawer" class="mdl-layout__drawer">
+      <span class="mdl-layout-title">
+        <div class="i18n" data-id="menu_headline"></div>
+      </span>
+      <nav class="mdl-navigation">
+        <a id="link_to_general_settings" class="mdl-navigation__link">
+          <div class="i18n" data-id="menu_left_1"></div>
+        </a>
+        <!--<a id="link_to_keyboard_shortcuts" class="mdl-navigation__link"><div class="i18n" data-id="menu_left_2"></div></a>-->
+      </nav>
     </div>
-  </body>
-  
-  <!-- Import utility packages-->
-  <script src="js/Constants.js"></script>
-  <script src="js/SharedPreferences.js"></script>
-  <script src="js/Helper.js"></script>
-  <script src="js/WallpaperManager.js"></script>
-  <script src="js/AlarmManager.js"></script>
-  <script src="lib/material-design-lite/js/material-select.min.js"></script>
-  
-  <!-- Load page specific scripts -->
-  <script src="js/MainActivity.js"></script>
-  <script src="js/NavigationHelper.js"></script>
+
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <!-- General settings -->
+        <div id="page_settings_general">
+          <div class="container-fluid" style="top: 0px; padding-right: 0px; padding-left: 0px;">
+
+            <!-- Wallpaper location -->
+            <div class="sidepadding">
+              <div class="row" style="padding: 16px 0 0 0;">
+                <div class="col-8">
+                  <p class="mdl-typography--display-1 i18n" data-id="wallpaper_location_headline"></p>
+                </div>
+              </div>
+              <div class="row" style="padding: 0 0 16px 0;">
+                <div class="col-10">
+                  <p id="tv_chosen_folder" class="mdl-typography--title center-vertically primary-text-color" style="height: 100%; overflow: auto; white-space: nowrap;"></p>
+                </div>
+                <div class="col-2">
+                  <!-- Button to choose a folder -->
+                  <button id="btn_choose_folder" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect nofocus accent-color text-primary-color i18n"
+                    style="width: 100%;" data-id="btn_choose_folder"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidepadding">
+              <div class="row">
+                <div class="col-10 center-vertically">
+                  <span style="font-size: 16px;" class="i18n" data-id="property_headline_0"></span>
+                  <div class="mdl-textfield mdl-js-textfield" style="width: 30px;">
+                    <input id="textfield_Interval" class="mdl-textfield__input" type="number" min="1" max="99">
+                    <label class="mdl-textfield__label" for="textfield_Interval">15</label>
+                    <span class="mdl-textfield__error i18n" data-id="error_invalid_interval"></span>
+                  </div>
+                  &nbsp;
+                  <div class="mdl-textfield mdl-js-textfield" style="width: 64px;">
+                    <div id="select_Interval"></div>
+                  </div>
+                </div>
+                <div class="col-2 center-vertically">
+                  <label id="cb_use_interval" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_interval_checkbox">
+                    <input type="checkbox" id="cb_use_interval_checkbox" class="mdl-switch__input">
+                    <span class="mdl-switch__label"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="row" style="padding-bottom: 0px;">
+                <div class="col-10 center-vertically">
+                  <span style="font-size: 16px;" class="i18n" data-id="property_headline_1"></span>
+                </div>
+                <div class="col-2 center-vertically">
+                  <label id="cb_choose_random" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_choose_random_checkbox">
+                    <input type="checkbox" id="cb_choose_random_checkbox" class="mdl-switch__input">
+                    <span class="mdl-switch__label"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8 center-vertically">
+                  <span style="font-size: 16px;" class="i18n" data-id="property_headline_2"></span>
+                </div>
+                <div class="col-4 center-vertically">
+                  <div style="display: flex; flex-grow: 1;"></div>
+                  <div class="mdl-textfield mdl-js-textfield" style="width: 120px;">
+                    <div id="select_Layout"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tooltip when the selected folder is invalid -->
+          <div id="tv_chosen_folder_tooltip" class="mdl-tooltip-forced i18n" for="tv_chosen_folder" data-id="error_invalid_path" style="display: none;"></div>
+        </div>
+
+        <div id="page_settings_keyboard_shortcuts" style="display: none;">
+          <div class="container-fluid" style="top: 0px; padding-right: 0px; padding-left: 0px;">
+
+            <div class="sidepadding">
+              <div class="row" style="padding: 16px 0 0 0;">
+                <div class="col-8">
+                  <p class="mdl-typography--display-1 i18n" data-id="keyboard_shortcuts_headline"></p>
+                </div>
+              </div>
+
+
+              <div class="row" style="padding-top: 16px; padding-bottom: 16px;">
+                <div class="col-10 center-vertically">
+                  <span style="font-size: 16px;" class="i18n" data-id="keyboard_headline_0"></span>
+                </div>
+                <div class="col-2 center-vertically">
+                  <label id="cb_use_shortcut_0" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_shortcut_0_checkbox">
+                    <input type="checkbox" id="cb_use_shortcut_0_checkbox" class="mdl-switch__input">
+                    <span class="mdl-switch__label"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="row" style="padding-top: 16px; padding-bottom: 16px;">
+                <div class="col-10 center-vertically">
+                  <span style="font-size: 16px;" class="i18n" data-id="keyboard_headline_1"></span>
+                </div>
+                <div class="col-2 center-vertically">
+                  <label id="cb_use_shortcut_1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_shortcut_1_checkbox">
+                    <input type="checkbox" id="cb_use_shortcut_1_checkbox" class="mdl-switch__input">
+                    <span class="mdl-switch__label"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="page_about" style="display: none;">
+          <div class="container-fluid center-vertically">
+            <div class="grid" style="padding-top: 64px;">
+              <div class="row">
+                <div class="col-12 i18n" style="text-align: center;" data-id="about_text">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid center-vertically" style="top: unset; bottom: 32px;">
+            <div class="row" style="width: 100%; padding-top: 32px; bottom: 32px;">
+              <div id="insertCopyright" style="text-align: center; width: 100%;" />
+              <div id="insertCopyright" style="text-align: center; width: 100%;" />
+            </div>
+          </div>
+        </div>
+    </main>
+    </div>
+</body>
+
+<!-- Import utility packages-->
+<script src="js/Constants.js"></script>
+<script src="js/SharedPreferences.js"></script>
+<script src="js/Helper.js"></script>
+<script src="js/WallpaperManager.js"></script>
+<script src="js/AlarmManager.js"></script>
+<script src="js/SelectBox.js"></script>
+
+<!-- Load page specific scripts -->
+<script src="js/MainActivity.js"></script>
+<script src="js/NavigationHelper.js"></script>
+
 </html>

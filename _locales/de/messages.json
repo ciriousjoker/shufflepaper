@@ -83,6 +83,14 @@
     "message": "Wähle die Hintergründe zufällig",
     "description": "Zweiter Eintrag in den allgemeinen Einstellungen"
   },
+  "property_headline_2": {
+    "message": "Layout",
+    "description": "Dritter Eintrag in den allgemeinen Einstellungen"
+  },
+  "options_layout": {
+    "message": "[\"Angepasst\",\"Zentriert\",\"Zugeschnitten\"]",
+    "description": "Array used to store layout options"
+  },
   "keyboard_headline_1": {
     "message": "[Strg] + W to change the wallpaper instantly",
     "description": "Erster Eintrag in den Tastatur-Einstellungen"

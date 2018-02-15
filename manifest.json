@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "ShufflePaper",
   "short_name": "ShufflePaper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Choose a folder and have your Chromebook automatically shuffle through the wallpapers in it!",
   "minimum_chrome_version": "38",
   "default_locale": "en",
