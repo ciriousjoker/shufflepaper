@@ -7,7 +7,7 @@ var optionsIntervalMode = JSON.parse(getString("array_interval_unit"));// ["minu
 
 function setupSelectIntervalMode(initial_mode) {
   
-  var onSelectIntervalMode = function() {
+  var onSelectIntervalMode = ()=> {
     this.button.value = optionsIntervalMode[this.id];
     intervalMode = this.id;
     storeIntervalPreferences();
@@ -59,7 +59,7 @@ var optionsLayoutMode = JSON.parse(getString("options_layout"));// ["stretched",
 
 function setupSelectLayoutMode(initial_mode) {
   
-  var onSelectLayoutMode = function() {
+  var onSelectLayoutMode = ()=> {
     this.button.value = optionsLayoutMode[this.id];
     layoutMode = this.id;
     storeLayoutPreferences();

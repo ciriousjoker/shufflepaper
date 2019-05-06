@@ -1,6 +1,6 @@
-function AlarmManager() {}
-AlarmManager.ID = function() {};
-AlarmManager.INTERVAL = function() {};
+var AlarmManager = {}
+AlarmManager.ID = {};
+AlarmManager.INTERVAL = {};
 
 
 
@@ -10,7 +10,7 @@ AlarmManager.ID.WALLPAPER = "wallpaper_change_interval";
 AlarmManager.INTERVAL.WALLPAPER_DEFAULT = 15;
 
 
-AlarmManager.set = function(id, interval) {
+AlarmManager.set = (id, interval) => {
   chrome.alarms.create(id, {
    delayInMinutes: interval,
    periodInMinutes: interval
@@ -18,6 +18,6 @@ AlarmManager.set = function(id, interval) {
   console.log("Started the wallpaper service.");
 };
 
-AlarmManager.clear = function(id) {
+AlarmManager.clear = (id) => {
   chrome.alarms.clear(id);
 };
