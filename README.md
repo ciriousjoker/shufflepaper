@@ -67,6 +67,10 @@ Wallpapers are picked randomly or in order in an interval depending on your choi
 |                      Main (en)                       |                      About (en)                       |
 | ------------------------------------------------ | ------------------------------------------------ |
 | <img src="screenshots/en/en_main.png"/>  | <img src="screenshots/en/en_about.png"/>  |
+
+
+|                      Main (de)                       |                      About (de)                       |
+| ------------------------------------------------ | ------------------------------------------------ |
 | <img src="screenshots/de/de_main.png"/>  | <img src="screenshots/de/de_about.png"/>  |
 
 ## Installation
