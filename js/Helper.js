@@ -9,83 +9,29 @@ function isdef(o) {
     return false;
 }
 
-function getRoot(callback, return_anyway) {
-    prefs.get(
-        Constants.Key.dir_id,
-        result => {
-            if (isdef(result)) {
-                // Try to load the folder using the key
-                chrome.fileSystem.isRestorable(result, is_recoverable => {
-                    if (is_recoverable) {
-                        chrome.fileSystem.restoreEntry(result, rootDir => {
-                            callback(rootDir);
-                        });
-                    }
-                });
-            } else {
-                if (return_anyway) {
-                    callback();
-                }
-            }
-        },
-        // Flag to return even if the result would be 'undefined'
-        true
-    );
+function compareVersion(v1, v2) {
+    if (typeof v1 !== "string") return false;
+    if (typeof v2 !== "string") return false;
+    v1 = v1.split(".");
+    v2 = v2.split(".");
+    const k = Math.min(v1.length, v2.length);
+    for (let i = 0; i < k; ++i) {
+        v1[i] = parseInt(v1[i], 10);
+        v2[i] = parseInt(v2[i], 10);
+        if (v1[i] > v2[i]) return 1;
+        if (v1[i] < v2[i]) return -1;
+    }
+    return v1.length == v2.length ? 0 : v1.length < v2.length ? -1 : 1;
 }
 
-function getFormattedPath(dir, callback) {
-    // TODO: Create constants for folder prefixes
-    chrome.fileSystem.getDisplayPath(dir, path => {
-        // eg. /special/drive-[SOME ID]/root/
-        var regIsMyDrive = new RegExp("/special/drive-\\w*/root");
+function isVersionJump(version, currentVersion, previousVersion) {
+    return compareVersion(previousVersion, currentVersion) == -1 && compareVersion(version, currentVersion) >= 0;
+}
 
-        // eg. /special/drive-[SOME ID]/other/
-        var regIsShared = new RegExp("/special/drive-\\w*/other/");
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-        // eg. /media/removable/My Usb/subfolder
-        var regIsExternal = new RegExp("/media/removable/");
-
-        // eg /provided/[SOME ID]:chrome-extension_[SOME ID]_[SOME STORAGE NUMBER]:Persistent::::::::::::::chrome_extension:::::::::::::::[MOUNTED FOLDER NAME]:[SOME ID]/subfolders
-        var regIsProvided = new RegExp("/provided/.*::::::::::::::chrome_extension:::::::::::::::");
-
-        // eg /provided/[SOME ID]:[ESCAPED ZIP PATH]:[SOME ID]/subfolders
-        var regIsCompressed = new RegExp("/provided/.*:");
-
-        // eg ~/Downloads/subfolders
-        var regIsDownloads = new RegExp("~/Downloads/");
-
-        var formatted_path;
-        var SubPath;
-        var isValid = true;
-
-        if (regIsMyDrive.test(path)) {
-            formatted_path = path.replace(regIsMyDrive, "My Drive");
-        } else if (regIsShared.test(path)) {
-            formatted_path = path.replace(regIsShared, "Shared/");
-        } else if (regIsExternal.test(path)) {
-            formatted_path = path.replace(regIsExternal, "");
-        } else if (regIsProvided.test(path)) {
-            var FormattedStart = path.replace(regIsProvided, ""); // Returns [MOUNTED FOLDER NAME]:[SOME ID]/subfolders
-            var StorageName = FormattedStart.substring(0, FormattedStart.lastIndexOf(":")); // Returns [MOUNTED FOLDER NAME]
-            SubPath = FormattedStart.replace(new RegExp("[^/]*"), ""); // Returns /subfolders
-            formatted_path = StorageName + SubPath;
-        } else if (regIsCompressed.test(path)) {
-            var RemovedBeginning = path.replace(new RegExp("/provided/[^:]*:"), ""); // Returns [ESCAPED ZIP PATH]:[SOME ID]/subfolders
-            var ZipLocation = unescape(RemovedBeginning.replace(new RegExp(":.*"), "")); // Returns [UNESCAPED ZIP PATH]
-            var ZipName = ZipLocation.replace(new RegExp(".*/"), ""); // Returns [ZIP NAME]
-            SubPath = path.replace(new RegExp(".*:[^/]*"), ""); // Returns /subfolders
-            formatted_path = ZipName + SubPath;
-            isValid = false;
-        } else if (regIsDownloads.test(path)) {
-            formatted_path = path.replace(new RegExp("~/"), "");
-        } else {
-            formatted_path = path;
-        }
-
-        formatted_path = formatted_path.replace(
-            /\//g,
-            '<i class="material-icons" style="font-size: 18px;">keyboard_arrow_right</i>'
-        );
-        callback(formatted_path, isValid);
-    });
+function getString(id, replacement) {
+    return chrome.i18n.getMessage(id, replacement);
 }

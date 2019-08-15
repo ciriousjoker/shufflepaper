@@ -1,29 +1,75 @@
 chrome.app.runtime.onLaunched.addListener(launchData => {
-    chrome.app.window.create("../MainActivity.html", {
-        id: Constants.Defaults.window_id,
-        bounds: {
-            width: Constants.Defaults.WindowDimensions.width,
-            height: Constants.Defaults.WindowDimensions.height
-        },
-        innerBounds: {
-            minWidth: Constants.Defaults.WindowDimensions.min_width,
-            minHeight: Constants.Defaults.WindowDimensions.min_height
-        },
-        frame: {
-            type: "chrome",
-            color: Constants.Defaults.frame_color
-        }
-    });
+    showMainWindow();
+});
+
+chrome.runtime.onInstalled.addListener(async info => {
+    await showUpdateNotification(info);
+
+    setTimeout(() => {
+        handleSpecificUpdates(info);
+    }, 1500);
 });
 
 chrome.alarms.onAlarm.addListener(alarm => {
-    console.log("Changing wallpaper!", alarm);
+    console.log("Loading wallpaper.", alarm);
     loadNextWallpaper();
 });
 
-// This isn't functional yet, but I'll keep it there in case the commands api will work anytime soon
-chrome.commands.onCommand.addListener(command => {
-    console.log("Command triggered: " + command);
+async function showUpdateNotification(info) {
+    const currentVersion = chrome.runtime.getManifest().version;
+    const previousVersion = info.previousVersion;
 
-    chrome.app.window.create("../MainActivity.html");
-});
+    if (info.reason == "install") {
+        showMainWindow();
+
+        setTimeout(async () => {
+            NotificationManager.show(
+                Constants.NotificationIds.app__install,
+                {
+                    type: "basic",
+                    title: getString("notification_install_title"),
+                    iconUrl: await getAsset("profilepicture", 48, "png", true),
+                    message: getString("notification_install_message")
+                },
+                () => {
+                    window.open(Constants.Defaults.url_reviews);
+                }
+            );
+        }, 10000);
+    } else if (info.reason == "update") {
+        if (compareVersion(currentVersion, previousVersion) > 0) {
+            await NotificationManager.show(
+                Constants.NotificationIds.app__update,
+                {
+                    type: "basic",
+                    title: getString("notification_update_title", [currentVersion]),
+                    iconUrl: getAsset("appicon", 48),
+                    message: getString("notification_update_message"),
+                    requireInteraction: true
+                },
+                () => {
+                    window.open(Constants.Defaults.url);
+                }
+            );
+        }
+    }
+}
+
+async function handleSpecificUpdates(info) {
+    const currentVersion = chrome.runtime.getManifest().version;
+    const previousVersion = info.previousVersion;
+
+    if (info.reason == "update") {
+        if (isVersionJump("2.0.0", currentVersion, previousVersion)) {
+            showMainWindow();
+            SharedPreferences.clearPreferences();
+            await NotificationManager.show(Constants.NotificationIds.app__update_additional, {
+                type: "basic",
+                title: getString("notification_update_title_v_1_3_0"),
+                iconUrl: getAsset("appicon", 48),
+                message: getString("notification_update_message_v_1_3_0"),
+                requireInteraction: true
+            });
+        }
+    }
+}

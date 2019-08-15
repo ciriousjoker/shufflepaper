@@ -2,229 +2,397 @@
 <html>
 
 <head>
-  <title>ShufflePaper</title>
+    <title>ShufflePaper</title>
 
-  <!-- Import jquery -->
-  <script src="lib/jquery/js/jquery-3.1.1.min.js"></script>
+    <!-- Import jquery -->
+    <script src="lib/jquery/js/jquery-3.1.1.min.js"></script>
 
-  <!-- Import mdl -->
-  <script src="lib/material-design-lite/js/material.min.js"></script>
-  <link rel="stylesheet" href="lib/material-design-lite/css/material.min.css">
-  <link rel="stylesheet" href="lib/material-design-lite/css/material-icons.css">
+    <!-- Import mdl -->
+    <script src="lib/material-design-lite/js/material.min.js"></script>
+    <link rel="stylesheet" href="lib/material-design-lite/css/material.min.css">
+    <link rel="stylesheet" href="lib/material-design-lite/css/material-icons.css">
 
-  <!-- Import tether (dependency for bootstrap -->
-  <script src="lib/tether/js/tether.min.js"></script>
+    <!-- Import tether (dependency for bootstrap -->
+    <script src="lib/tether/js/tether.min.js"></script>
 
-  <!-- Import bootstrap -->
-  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Import bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 
-  <!-- Load page specific styles -->
-  <link rel="stylesheet" href="css/general-styles.css">
-  <link rel="stylesheet" href="css/ColorPalette.css">
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/MainActivity.css">
+    <!-- Import getmdl-select -->
+    <script src="lib/getmdl-select/js/getmdl-select.min.js"></script>
+    <link rel="stylesheet" href="lib/getmdl-select/css/getmdl-select.min.css">
 
-  <!-- Load internationalization library -->
-  <script src="js/Strings.js"></script>
+    <!-- Load page specific styles -->
+    <link rel="stylesheet" href="css/general-styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/fixes.css">
+    <link rel="stylesheet" href="css/ColorPalette.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/MainActivity.css">
+    <link rel="stylesheet" href="css/pages/about.css">
+    <link rel="stylesheet" href="css/components/background-pattern.css">
 </head>
 
-<body style="display: none;">
-  <div id="AppBar" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header default-primary-color">
-      <div class="mdl-layout__header-row">
-        <!-- Title + Spacer -->
-        <span class="mdl-layout-title">
-          <div class="i18n" data-id="appname"></div>
-        </span>
-        <div class="mdl-layout-spacer"></div>
+<body>
+    <div class="container__app_bar mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="appbar mdl-layout__header default-primary-color fix__position_relative">
+            <div class="mdl-layout__header-row">
+                <!-- Title + Spacer -->
+                <span class="mdl-layout-title">
+                    <div class="i18n" data-id="app_name"></div>
+                </span>
+                <div class="mdl-layout-spacer"></div>
 
-        <!-- Refresh button -->
-        <button id="btn_refresh_wallpaper" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
-          <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_2"></i>
-        </button>
+                <!-- Info about found images. -->
+                <span id="tv_info_folder_content" class="mdl-navigation__link"></span>
 
-        <!-- Tooltip for the refresh button -->
-        <div id="btn_refresh_wallpaper_tooltip" class="mdl-tooltip i18n" for="btn_refresh_wallpaper" data-id="tooltip_refresh"></div>
-        &nbsp;
+                <!-- Refresh button -->
+                <button id="btn_refresh_wallpaper"
+                    class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
+                    <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_2"></i>
+                </button>
 
-        <!-- Share button -->
-        <button id="btn_share_app" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
-          <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_1"></i>
-        </button>
+                <!-- Tooltip for the refresh button -->
+                <div id="btn_refresh_wallpaper_tooltip" class="mdl-tooltip i18n" for="btn_refresh_wallpaper"
+                    data-id="tooltip_refresh"></div>
+                &nbsp;
 
-        <!-- Tooltip for the share button -->
-        <div id="btn_share_app_tooltip" class="mdl-tooltip i18n" for="btn_share_app" data-id="tooltip_share"></div>
-        &nbsp;
+                <!-- Share button -->
+                <button id="btn_share_app"
+                    class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
+                    <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_1"></i>
+                </button>
 
-        <!-- Three dots -->
-        <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
-          <i class="material-icons i18n" data-id="icon_menu_right"></i>
-        </button>
-
-        <!-- Three dots menu -->
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-          <li id="link_to_about" class="mdl-menu__item">
-            <div class="i18n" data-id="menu_right_1"></div>
-          </li>
-          <li id="btn_close" class="mdl-menu__item">
-            <div class="i18n" data-id="menu_right_2"></div>
-          </li>
-        </ul>
-      </div>
-    </header>
-    <!-- Navigation drawer -->
-    <div id="NavigationDrawer" class="mdl-layout__drawer">
-      <span class="mdl-layout-title">
-        <div class="i18n" data-id="menu_headline"></div>
-      </span>
-      <nav class="mdl-navigation">
-        <a id="link_to_general_settings" class="mdl-navigation__link">
-          <div class="i18n" data-id="menu_left_1"></div>
-        </a>
-        <!--<a id="link_to_keyboard_shortcuts" class="mdl-navigation__link"><div class="i18n" data-id="menu_left_2"></div></a>-->
-      </nav>
-    </div>
-
-    <main class="mdl-layout__content">
-      <div class="page-content">
-        <!-- General settings -->
-        <div id="page_settings_general">
-          <div class="container-fluid" style="top: 0px; padding-right: 0px; padding-left: 0px;">
-
-            <!-- Wallpaper location -->
-            <div class="sidepadding">
-              <div class="row" style="padding: 16px 0 0 0;">
-                <div class="col-8">
-                  <p class="mdl-typography--display-1 i18n" data-id="wallpaper_location_headline"></p>
+                <!-- Tooltip for the share button -->
+                <div id="btn_share_app_tooltip" class="mdl-tooltip i18n" for="btn_share_app" data-id="tooltip_share">
                 </div>
-              </div>
-              <div class="row" style="padding: 0 0 16px 0;">
-                <div class="col-10">
-                  <p id="tv_chosen_folder" class="mdl-typography--title center-vertically primary-text-color" style="height: 100%; overflow: auto; white-space: nowrap;"></p>
-                </div>
-                <div class="col-2">
-                  <!-- Button to choose a folder -->
-                  <button id="btn_choose_folder" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect nofocus accent-color text-primary-color i18n"
-                    style="width: 100%;" data-id="btn_choose_folder"></button>
-                </div>
-              </div>
             </div>
-
-            <div class="sidepadding">
-              <div class="row">
-                <div class="col-10 center-vertically">
-                  <span style="font-size: 16px;" class="i18n" data-id="property_headline_0"></span>
-                  <div class="mdl-textfield mdl-js-textfield" style="width: 30px;">
-                    <input id="textfield_Interval" class="mdl-textfield__input" type="number" min="1" max="99">
-                    <label class="mdl-textfield__label" for="textfield_Interval">15</label>
-                    <span class="mdl-textfield__error i18n" data-id="error_invalid_interval"></span>
-                  </div>
-                  &nbsp;
-                  <div class="mdl-textfield mdl-js-textfield" style="width: 64px;">
-                    <div id="select_Interval"></div>
-                  </div>
-                </div>
-                <div class="col-2 center-vertically">
-                  <label id="cb_use_interval" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_interval_checkbox">
-                    <input type="checkbox" id="cb_use_interval_checkbox" class="mdl-switch__input">
-                    <span class="mdl-switch__label"></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="row" style="padding-bottom: 0px;">
-                <div class="col-10 center-vertically">
-                  <span style="font-size: 16px;" class="i18n" data-id="property_headline_1"></span>
-                </div>
-                <div class="col-2 center-vertically">
-                  <label id="cb_choose_random" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_choose_random_checkbox">
-                    <input type="checkbox" id="cb_choose_random_checkbox" class="mdl-switch__input">
-                    <span class="mdl-switch__label"></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-8 center-vertically">
-                  <span style="font-size: 16px;" class="i18n" data-id="property_headline_2"></span>
-                </div>
-                <div class="col-4 center-vertically">
-                  <div style="display: flex; flex-grow: 1;"></div>
-                  <div class="mdl-textfield mdl-js-textfield" style="width: 120px;">
-                    <div id="select_Layout"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tooltip when the selected folder is invalid -->
-          <div id="tv_chosen_folder_tooltip" class="mdl-tooltip-forced i18n" for="tv_chosen_folder" data-id="error_invalid_path" style="display: none;"></div>
+        </header>
+        <!-- Navigation drawer -->
+        <div id="NavigationDrawer" class="mdl-layout__drawer">
+            <span class="mdl-layout-title">
+                <div class="i18n" data-id="menu_headline"></div>
+            </span>
+            <nav class="mdl-navigation">
+                <a id="link_to_general_settings" class="mdl-navigation__link link" data-page="main">
+                    <div class="i18n" data-id="menu_left_1"></div>
+                </a>
+                <a id="link_to_about" class="mdl-navigation__link link" data-page="about">
+                    <!-- TODO: Rename menu_right_1 to menu_left_1 -->
+                    <div class="i18n" data-id="menu_right_1"></div>
+                </a>
+            </nav>
         </div>
 
-        <div id="page_settings_keyboard_shortcuts" style="display: none;">
-          <div class="container-fluid" style="top: 0px; padding-right: 0px; padding-left: 0px;">
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <!-- Shaped Background -->
+                <div class="container__shaped_background">
+                    <div class="wrapper__background">
+                        <header id="background" class="active">
+                            <div class="pattern_opacity_mask">
+                                <div class="pattern"></div>
+                            </div>
+                        </header>
 
-            <div class="sidepadding">
-              <div class="row" style="padding: 16px 0 0 0;">
-                <div class="col-8">
-                  <p class="mdl-typography--display-1 i18n" data-id="keyboard_shortcuts_headline"></p>
+                        <footer>
+                            <div class="pattern"></div>
+                        </footer>
+                    </div>
                 </div>
-              </div>
+
+                <!-- General settings -->
+                <div id="page_main" class="page">
+
+                    <ul class=" demo-list-control mdl-list">
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon">folder</i>
+                                <span class="i18n" data-id="wallpaper_location_headline"></span>
+                                <span id="tv_chosen_folder" class="mdl-list__item-sub-title center-vertically"
+                                    style="height: 100%; overflow: auto; white-space: nowrap;"></span>
+                            </span>
+                            <span class="mdl-list__item-secondary-action">
+                                <button id="btn_choose_folder"
+                                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect nofocus accent-color text-primary-color i18n"
+                                    style="width: 100%;" data-id="btn_choose_folder"></button>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item fix__overflow">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon">timer</i>
+                                <!-- TODO: Rename to setting_title_timer -->
+                                <span class="i18n" data-id="property_headline_0"></span>
+                                <div class="mdl-textfield mdl-js-textfield fix__textbox_height" style="width: 30px;">
+                                    <input id="textfield_interval" class="mdl-textfield__input" type="number" min="1"
+                                        max="99">
+                                    <label class="mdl-textfield__label fix__text_align_center"
+                                        for="textfield_interval">15</label>
+                                    <span class="mdl-textfield__error i18n" data-id="error_invalid_interval"></span>
+                                </div>
+                                &nbsp;
+                                <!-- <div class="mdl-textfield mdl-js-textfield fix__textbox_height" style="width: 64px;">
+                                    <div id="select_Interval"></div>
+                                </div> -->
+
+                                <div id="selectbox_wrapper_delay_unit"
+                                    class="mdl-textfield mdl-js-textfield getmdl-select getmdl-select__fix-height fix__width_auto fix__textbox_height"
+                                    data-type="delay_unit">
+                                    <input type="text" value="" class="mdl-textfield__input" id="input_delay_unit"
+                                        readonly>
+                                    <input type="hidden" value="" name="input_delay_unit">
+                                    <label for="selectbox_delay_unit" class="mdl-textfield__label"></label>
+                                    <ul id="selectbox_delay_unit" for="input_delay_unit"
+                                        class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                    </ul>
+                                </div>
+                                <!-- TODO: Add time until next wallpaper -->
+                                <!-- <span class="mdl-list__item-sub-title">62 Episodes</span> -->
+                            </span>
+                            <span class="mdl-list__item-secondary-action">
+                                <label id="cb_use_interval" class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
+                                    for="cb_use_interval_checkbox">
+                                    <input type="checkbox" id="cb_use_interval_checkbox" class="mdl-switch__input">
+                                    <span class="mdl-switch__label"></span>
+                                </label>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons  mdl-list__item-icon">shuffle</i>
+                                <span class="i18n" data-id="property_headline_1"></span>
+                            </span>
+                            <span class="mdl-list__item-secondary-action">
+                                <label id="cb_choose_random" class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
+                                    for="cb_choose_random_checkbox">
+                                    <input type="checkbox" id="cb_choose_random_checkbox" class="mdl-switch__input">
+                                    <span class="mdl-switch__label"></span>
+                                </label>
+                            </span>
+                        </li>
+
+                        <li class="mdl-list__item fix__overflow">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons  mdl-list__item-icon">crop</i>
+                                <span class="i18n" data-id="property_headline_2"></span>
+                            </span>
+                            <span class="mdl-list__item-secondary-action">
+                                <div id="selectbox_wrapper_layout_mode"
+                                    class="mdl-textfield mdl-js-textfield getmdl-select getmdl-select__fix-height fix__width_auto fix__textbox_height"
+                                    data-type="layout_mode">
+                                    <input type="text" value="" class="mdl-textfield__input" id="input_layout_mode"
+                                        readonly>
+                                    <input type="hidden" value="" name="input_layout_mode">
+                                    <label for="selectbox_layout_mode" class="mdl-textfield__label"></label>
+                                    <div class="fix__menu_bottom">
+                                        <ul id="selectbox_layout_mode" for="input_layout_mode"
+                                            class="mdl-menu mdl-menu--top-left mdl-js-menu">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </span>
+                        </li>
+
+                        <!-- <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons  mdl-list__item-avatar">person</i>
+                                Bob Odenkirk
+                            </span>
+                            <span class="mdl-list__item-secondary-action">
+                                
+                            </span>
+                        </li> -->
+                    </ul>
 
 
-              <div class="row" style="padding-top: 16px; padding-bottom: 16px;">
-                <div class="col-10 center-vertically">
-                  <span style="font-size: 16px;" class="i18n" data-id="keyboard_headline_0"></span>
-                </div>
-                <div class="col-2 center-vertically">
-                  <label id="cb_use_shortcut_0" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_shortcut_0_checkbox">
-                    <input type="checkbox" id="cb_use_shortcut_0_checkbox" class="mdl-switch__input">
-                    <span class="mdl-switch__label"></span>
-                  </label>
-                </div>
-              </div>
+                    <div class="container-fluid" style="top: 0px; padding-right: 0px; padding-left: 0px;">
 
-              <div class="row" style="padding-top: 16px; padding-bottom: 16px;">
-                <div class="col-10 center-vertically">
-                  <span style="font-size: 16px;" class="i18n" data-id="keyboard_headline_1"></span>
-                </div>
-                <div class="col-2 center-vertically">
-                  <label id="cb_use_shortcut_1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="cb_use_shortcut_1_checkbox">
-                    <input type="checkbox" id="cb_use_shortcut_1_checkbox" class="mdl-switch__input">
-                    <span class="mdl-switch__label"></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                        <!-- Wallpaper location -->
+                        <div class="sidepadding">
+                            <div class="row" style="padding: 16px 0 0 0;">
+                                <div class="col-8">
+                                    <!-- <p class="mdl-typography--display-1 i18n" data-id="wallpaper_location_headline"></p> -->
+                                </div>
+                            </div>
+                            <div class="row" style="padding: 0 0 16px 0;">
+                                <div class="col-10">
+                                    <!-- <p id="tv_chosen_folder"
+                                        class="mdl-typography--title center-vertically primary-text-color"
+                                        style="height: 100%; overflow: auto; white-space: nowrap;"></p> -->
+                                </div>
+                                <div class="col-2">
+                                    <!-- Button to choose a folder -->
+                                    <!-- <button id="btn_choose_folder"
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect nofocus accent-color text-primary-color i18n"
+                                        style="width: 100%;" data-id="btn_choose_folder"></button> -->
+                                </div>
+                            </div>
+                        </div>
 
-        <div id="page_about" style="display: none;">
-          <div class="container-fluid center-vertically">
-            <div class="grid" style="padding-top: 64px;">
-              <div class="row">
-                <div class="col-12 i18n" style="text-align: center;" data-id="about_text">
+                        <div class="sidepadding">
+                            <div class="row">
+                                <div class="col-10 center-vertically">
+                                    <!-- <span style="font-size: 16px;" class="i18n" data-id="property_headline_0"></span> -->
+                                    <!-- <div class="mdl-textfield mdl-js-textfield" style="width: 30px;">
+                                        <input id="textfield_interval" class="mdl-textfield__input" type="number"
+                                            min="1" max="99">
+                                        <label class="mdl-textfield__label" for="textfield_interval">15</label>
+                                        <span class="mdl-textfield__error i18n" data-id="error_invalid_interval"></span>
+                                    </div>
+                                    &nbsp;
+                                    <div class="mdl-textfield mdl-js-textfield" style="width: 64px;">
+                                        <div id="select_Interval"></div>
+                                    </div> -->
+                                </div>
+                                <div class="col-2 center-vertically">
+                                    <!-- <label id="cb_use_interval" class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
+                                        for="cb_use_interval_checkbox">
+                                        <input type="checkbox" id="cb_use_interval_checkbox" class="mdl-switch__input">
+                                        <span class="mdl-switch__label"></span>
+                                    </label> -->
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-bottom: 0px;">
+                                <div class="col-10 center-vertically">
+                                    <!-- <span style="font-size: 16px;" class="i18n" data-id="property_headline_1"></span> -->
+                                </div>
+                                <div class="col-2 center-vertically">
+                                    <!-- <label id="cb_choose_random" class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
+                                        for="cb_choose_random_checkbox">
+                                        <input type="checkbox" id="cb_choose_random_checkbox" class="mdl-switch__input">
+                                        <span class="mdl-switch__label"></span>
+                                    </label> -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-8 center-vertically">
+                                    <!-- <span style="font-size: 16px;" class="i18n" data-id="property_headline_2"></span> -->
+                                </div>
+                                <div class="col-4 center-vertically">
+                                    <!-- <div style="display: flex; flex-grow: 1;"></div>
+                                    <div class="mdl-textfield mdl-js-textfield" style="width: 120px;">
+                                        <div id="select_Layout"></div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="container-fluid center-vertically" style="top: unset; bottom: 32px;">
-            <div class="row" style="width: 100%; padding-top: 32px; bottom: 32px;">
-              <div id="insertCopyright" style="text-align: center; width: 100%;" />
-              <div id="insertCopyright" style="text-align: center; width: 100%;" />
-            </div>
-          </div>
-        </div>
-    </main>
+
+                <div id="page_about" class="page">
+                    <!-- #region [Blue] Test -->
+                    <div class="container__about mdc-typography">
+                        <!-- <button ref="elemButtonBack" class="btn__back mdc-icon-button material-icons"
+                                click.delegate="onClickButtonBack()">keyboard_arrow_left</button> -->
+
+                        <section class="section__about_top_buttons">
+                            <!-- Icon button -->
+                            <button id="btnBackFromAbout"
+                                class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon link nofocus"
+                                data-page="main">
+                                <i class="material-icons">keyboard_arrow_left</i>
+                            </button>
+
+                            <!-- Share button -->
+                            <button id="btn_share_app_about"
+                                class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect nofocus">
+                                <i class="material-icons i18n" style="font-size: 18px;" data-id="icon_actionbar_1"></i>
+                            </button>
+
+                            <!-- Tooltip for the share button -->
+                            <div id="btn_share_app_about_tooltip" class="mdl-tooltip i18n" for="btn_share_app_about"
+                                data-id="tooltip_share">
+                            </div>
+                        </section>
+
+                        <header>
+                            <!-- <div class="logo text-emphasis-high">ShadyVault<span class="version">${version}</span>
+                                </div> -->
+                            <div>
+                                <span class="logo text-emphasis-high i18n" data-id="app_name">
+                                </span>
+                                <span id="placeholderInsertVersion" class="version"></span>
+                            </div>
+                            <!-- <div id="insertCopyright" style="text-align: center; width: 100%;" /> -->
+                            <!-- <div class="slogan mdc-typography--caption">The vault for all things shady.</div> -->
+
+
+                            <div class="slogan i18n" data-id="app_slogan">
+                            </div>
+                            <div class="divider"></div>
+                        </header>
+                        <main>
+
+                            <div class="wrapper_text">
+
+                                <div class="left"></div>
+
+                                <div class="center">
+
+                                    <div class="text col-12 i18n" data-id="page_about_body">
+                                    </div>
+                                    <div class="signature text-emphasis-high"></div>
+                                </div>
+                                <div class="right">
+                                </div>
+                            </div>
+                        </main>
+                        <footer>
+                            <div class="actions_support">
+                                <div ref="elemContainerDonateButtons" class="actions_donate">
+                                    <div class="btn_donate mdl-shadow--4dp" data-amount="5">5<span class="i18n"
+                                            data-id="currency"></span></div>
+                                    <div class="btn_donate mdl-shadow--4dp" data-amount="10">10<span class="i18n"
+                                            data-id="currency"></span></div>
+                                    <div class="btn_donate mdl-shadow--4dp" data-amount="25">25<span class="i18n"
+                                            data-id="currency"></span></div>
+                                </div>
+
+                                <div class="actions_review">
+                                    <div class="profile_picture">
+                                        <img class="profile_picture_img" />
+                                    </div>
+                                    <button
+                                        class="fab__review mdl-button mdl-js-button mdl-js-ripple-effect mdl-shadow--4dp">
+                                        <i class="material-icons">rate_review</i><span class="i18n"
+                                            data-id="button_review"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div ref="elemContainerDonateHint"
+                                class="donate_hint mdc-typography--caption text-emphasis-high i18n"
+                                data-id="page_about_support_hint">
+                            </div>
+                        </footer>
+                    </div>
+                    <!-- #endregion Test -->
+
+                </div>
+
+                <!-- Snackbar-->
+
+                <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
+                    <div class="mdl-snackbar__text"></div>
+                    <button
+                        class="mdl-snackbar__action mdl-button mdl-js-button mdl-js-ripple-effect fix__outline_none fix__height_auto"
+                        type="button"></button>
+                </div>
+        </main>
     </div>
 </body>
 
 <!-- Import utility packages-->
 <script src="js/Constants.js"></script>
-<script src="js/SharedPreferences.js"></script>
 <script src="js/Helper.js"></script>
+<script src="js/AssetManager.js"></script>
+<script src="js/SnackbarManager.js"></script>
+<script src="js/NotificationManager.js"></script>
+<script src="js/WindowManager.js"></script>
+<script src="js/FilesystemManager.js"></script>
+<script src="js/SharedPreferences.js"></script>
 <script src="js/WallpaperManager.js"></script>
 <script src="js/AlarmManager.js"></script>
 <script src="js/SelectBox.js"></script>

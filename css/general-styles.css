@@ -1,67 +1,78 @@
-/*body {
-  .material-icons {
-  font-family: 'Roboto';
-  color: rgba(0, 0, 0, 0.3) !important;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-}*/
+html {
+    font-size: 16px;
+}
+
+.page {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.drag {
+    -webkit-app-region: drag;
+}
+
+.no-drag {
+    -webkit-app-region: no-drag;
+}
 
 .nofocus:focus {
-  outline: none !important;
-  border: none !important;
-  -moz-appearance:none;
+    outline: none !important;
+    border: none !important;
+    -moz-appearance: none;
 }
 
 .nosidepadding {
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0px;
-  padding-bottom: 0px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .sidepadding {
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .pref-label {
-  width: calc(75%);
-  height: 100%;
-  margin: 0px;
-  display: flex;
-  line-height: 1.15;
-  align-items: center;
+    width: calc(75%);
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    line-height: 1.15;
+    align-items: center;
 }
 
 .center-vertically {
-  display: flex !important;
-  align-items: center !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
 .divider-top {
-  border-top: 1px solid rgba(0,0,0,.1);
+    border-top: 1px solid rgba(0, 0, 0, .1);
 }
 
 
-a, a:visited, a:hover, a:active {
-  text-decoration: none;
-  color: #03A9F4;
+a,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #03A9F4;
 }
 
 /* Fixes */
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
+    width: 0px;
     height: 0px;
-    background: transparent;  /* optional: just make scrollbar invisible */
+    background: transparent;
 }
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
@@ -69,32 +80,45 @@ a, a:visited, a:hover, a:active {
 }
 
 .mdl-layout__drawer-button {
-  outline: none !important;
-  border: none !important;
-  -moz-appearance:none;
+    outline: none !important;
+    border: none !important;
+    -moz-appearance: none;
 }
 
 .mdl-textfield__input {
-  margin: 8px 0;
-  text-align: center !important;
-  padding: unset;
+    /* margin: 8px 0; */
+    text-align: center !important;
+    /* padding: unset; */
 }
 
-
-.mdl-textfield__label {
-  text-align: center !important;
-  top: 29px;
+.mdl-js-snackbar {
+    width: 75%;
 }
 
+.mdl-js-snackbar .mdl-snackbar__text {
+    padding-left: 12px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 8px;
+}
+
+.mdl-js-snackbar .mdl-snackbar__action {
+    padding-right: 12px;
+    margin: 8px;
+}
+
+.mdl-textfield__label::after {
+    bottom: 12px;
+}
 
 .mdl-textfield__error {
-  width: 256px;
+    width: 128px;
 }
 
 .mdl-switch.is-checked .mdl-switch__track {
     background: rgba(179, 229, 252, 0.5);
 }
-    
+
 .mdl-switch.is-checked .mdl-switch__thumb {
     background: #03A9F4;
     left: 16px;
@@ -111,8 +135,8 @@ a, a:visited, a:hover, a:active {
 }
 
 .mdl-switch__ripple-container {
-  right: 4px;
-  left: unset;
+    right: 4px;
+    left: unset;
 }
 
 .mdl-switch.is-checked .mdl-switch__ripple-container {
@@ -124,35 +148,6 @@ a, a:visited, a:hover, a:active {
     background-color: #03A9F4;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.text-emphasis-high {
+    opacity: 0.87;
+}

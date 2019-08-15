@@ -1,128 +1,266 @@
 {
-  "appname": {
-    "message": "ShufflePaper",
-    "description": "Name der App"
-  },
-  "menu_headline": {
-    "message": "Menü",
-    "description": "Überschrift des Menüs"
-  },
-  "menu_left_1": {
-    "message": "Allgemeine Einstellungen",
-    "description": "Erster Menüeintrag"
-  },
-  "menu_left_2": {
-    "message": "Tastenkürzel",
-    "description": "Zweiter Menüeintrag"
-  },
-  "menu_right_1": {
-    "message": "Über",
-    "description": "Erster Eintrag im rechten Menü"
-  },
-  "menu_right_2": {
-    "message": "Schließen",
-    "description": "Zweiter Eintrag im rechten Menü"
-  },
-  "error_no_folder_specified": {
-    "message": "Bitte wähle einen Ordner aus <i class=\"material-icons\">keyboard_arrow_right</i>",
-    "description": "Platzhalter für den gewählten Pfad"
-  },
-  "error_invalid_path": {
-    "message": "Der gewählte Ordner ist nicht zulässig",
-    "description": "Fehlermeldung wenn ein unzulässiger Pfad gewählt wurde (z.B. ein zip Archiv)"
-  },
-  "error_invalid_interval": {
-    "message": "Bitte wähle eine Zahl zwischen 1 und 99!",
-    "description": "Fehlermeldung wenn eine unerlaubte Zahl ins Intervallfeld eingetragen wurde"
-  },
-  "tooltip_share": {
-    "message": "Teile diese App über Social Media",
-    "description": "Tooltip für den Teilen-Button"
-  },
-  "tooltip_share_clicked": {
-    "message": "Link wurde in die Zwischenablage kopiert!",
-    "description": "Tooltip für den Teilen-Button nachdem er geklickt wurde"
-  },
-  "tooltip_refresh": {
-    "message": "Ändere sofort den Hintergrund",
-    "description": "Tooltip für den Refresh-Button"
-  },
-  "tooltip_refresh_clicked": {
-    "message": "Wallpaper wurde geändert!",
-    "description": "Tooltip für den Refresh-Button nachdem er geklickt wurde"
-  },
-  "icon_actionbar_1": {
-    "message": "share",
-    "description": "Icon des ersten Buttons neben dem rechten Menü (von rechts aus)"
-  },
-  "icon_actionbar_2": {
-    "message": "refresh",
-    "description": "Icon des zweiten Buttons neben dem rechten Menü (von rechts aus)"
-  },
-  "icon_menu_right": {
-    "message": "more_vert",
-    "description": "Icon des rechten Menüs"
-  },
-  "wallpaper_location_headline": {
-    "message": "Wallpaper-Pfad",
-    "description": "Überschrift der Seite mit den allgemeinen Einstellungen"
-  },
-  "keyboard_shortcuts_headline": {
-    "message": "Tastenkürzel",
-    "description": "Überschrift der Seite mit den Einstellungen für die Tastenkürzel"
-  },
-  "btn_choose_folder": {
-    "message": "Öffnen",
-    "description": "Beschriftung für den Button um einen Ordner zu wählen"
-  },
-  "property_headline_0": {
-    "message": "Neuer Hintergrund alle&nbsp;",
-    "description": "Erster Eintrag in den allgemeinen Einstellungen"
-  },
-  "property_headline_1": {
-    "message": "Wähle die Hintergründe zufällig",
-    "description": "Zweiter Eintrag in den allgemeinen Einstellungen"
-  },
-  "property_headline_2": {
-    "message": "Layout",
-    "description": "Dritter Eintrag in den allgemeinen Einstellungen"
-  },
-  "options_layout": {
-    "message": "[\"Angepasst\",\"Zentriert\",\"Zugeschnitten\"]",
-    "description": "Array used to store layout options"
-  },
-  "keyboard_headline_1": {
-    "message": "[Strg] + W to change the wallpaper instantly",
-    "description": "Erster Eintrag in den Tastatur-Einstellungen"
-  },
-  "keyboard_headline_0": {
-    "message": "[Strg] + P to pin the current wallpaper until you select a new one",
-    "description": "Zweiter Eintrag in den Tastatur-Einstellungen"
-  },
-  "about_text": {
-    "message": "Dieses Projekt ist auf <a href=\"https://github.com/CiriousJoker/ShufflePaper\" target=\"_blank\">Github</a> und im <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj\" target=\"_blank\">Chrome Webstore</a>.<br>Wenn du diese App mit Freunden teilen willst, kannst du den Button oben rechts in der Ecke benutzen!<br>Außerdem würde es mich sehr freuen wenn du diese App <a href=\"https://chrome.google.com/webstore/detail/shufflepaper/ghcndibmdbeipgggdddmecagpkllglpj/reviews\" target=\"_blank\">bewerten</a> könntest, denn ich habe sehr viel Arbeit reingesteckt :)",
-    "description": "Text in der 'Über'-Seite"
-  },
-  "array_interval_unit": {
-    "message": "[\"Minuten\",\"Stunden\",\"Tage\"]",
-    "description": "Array mit den Interval-Einheiten"
-  },
-  "copyright": {
-    "message": "$name$ $symbol$ $year$",
-    "description": "Genutzt um den Copyright-Text zusammenzusetzen",
-    "placeholders": {
-      "symbol": {
-        "content": "\u00A9",
-        "example": "Das Copyright-Symbol"
-      },
-      "name": {
-        "content": "$1",
-        "example": "A name"
-      },
-      "year": {
-        "content": "$2",
-        "example": "The current year"
-      }
+    "app_name": {
+        "message": "ShufflePaper",
+        "description": "App Name"
+    },
+    "app_description": {
+        "message": "Wähle einen Ordner und lass dein Chromebook automatisch dein Wallpaper wechseln!",
+        "description": "App Beschreibung"
+    },
+    "app_slogan": {
+        "message": "Ein Wallpaper Manager für dein Chromebook.",
+        "description": "App slogan"
+    },
+    "notification_install_title": {
+        "message": "Viel Spaß mit der App!",
+        "description": "Willkommensnachricht Titel."
+    },
+    "notification_install_message": {
+        "message": "Wenn dir die App gefällt, bewerte sie doch indem du später auf diese Benachrichtigung klickst. Cheers!",
+        "description": "Willkommensnachricht Text."
+    },
+    "notification_update_title": {
+        "message": "ShufflePaper wurde zu v$version$ geupdated",
+        "description": "Update Benachrichtigung Titel.",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "1.3.0"
+            }
+        }
+    },
+    "notification_update_message": {
+        "message": "Klicke, um zu sehen was es Neues gibt!",
+        "description": "Update Benachrichtigung Text."
+    },
+    "notification_update_title_v_1_3_0": {
+        "message": "Deine Einstellungen wurden zurückgesetzt.",
+        "description": "Weiterer Update Titel für v1.3.0."
+    },
+    "notification_update_message_v_1_3_0": {
+        "message": "Mit diesem Update mussten alle Einstellungen zurückgesetzt werden. Bitte stelle sie erneut ein, es tut mir Leid!",
+        "description": "Weiterer Update Text für v1.3.0."
+    },
+    "notification_error__folder_unreadable_title": {
+        "message": "Ordner kann nicht gelesen werden",
+        "description": "Error-Titel: Ordner unlesbar"
+    },
+    "notification_error__folder_unreadable_message": {
+        "message": "Bitte wähle einen anderen Ordner aus.",
+        "description": "Error-Nachricht: Ordner unlesbar"
+    },
+    "notification_donation_thanks_title": {
+        "message": "You're the best!",
+        "description": "Donation notification title"
+    },
+    "notification_donation_thanks_message": {
+        "message": "Thanks! It means a lot to me!",
+        "description": "Donation notification message"
+    },
+    "menu_headline": {
+        "message": "Menü",
+        "description": "Überschrift des Menüs"
+    },
+    "menu_left_1": {
+        "message": "Allgemeine Einstellungen",
+        "description": "Erster Menüeintrag"
+    },
+    "menu_left_2": {
+        "message": "Tastenkürzel",
+        "description": "Zweiter Menüeintrag"
+    },
+    "menu_right_1": {
+        "message": "Über",
+        "description": "Erster Eintrag im rechten Menü"
+    },
+    "menu_right_2": {
+        "message": "Schließen",
+        "description": "Zweiter Eintrag im rechten Menü"
+    },
+    "info_found_images_none": {
+        "message": "Keine Bilder gefunden.",
+        "description": "Infotext in der Titelleiste."
+    },
+    "info_found_images_singular": {
+        "message": "Ein Bild gefunden.",
+        "description": "Infotext in der Titelleiste."
+    },
+    "info_found_images_plural": {
+        "message": "$images$ Bilder gefunden.",
+        "description": "Infotext in der Titelleiste.",
+        "placeholders": {
+            "images": {
+                "content": "$1",
+                "example": "1234"
+            }
+        }
+    },
+    "info_skipped_files_singular": {
+        "message": "Eine Datei wurde ignoriert.",
+        "description": "Infotext in der Titelleiste."
+    },
+    "info_skipped_files_plural": {
+        "message": "$skipped$ Dateien wurden ignoriert.",
+        "description": "Infotext in der Titelleiste..",
+        "placeholders": {
+            "skipped": {
+                "content": "$1",
+                "example": "8"
+            }
+        }
+    },
+    "placeholder_no_folder_specified": {
+        "message": "Bitte wähle einen Ordner aus <i class=\"material-icons\">keyboard_arrow_right</i>",
+        "description": "Platzhalter für den gewählten Pfad"
+    },
+    "error_invalid_path": {
+        "message": "Der gewählte Ordner ist nicht zulässig",
+        "description": "Fehlermeldung wenn ein unzulässiger Pfad gewählt wurde (z.B. ein zip Archiv)"
+    },
+    "error_invalid_interval": {
+        "message": "Bitte wähle eine Zahl zwischen 1 und 99!",
+        "description": "Fehlermeldung wenn eine unerlaubte Zahl ins Intervallfeld eingetragen wurde"
+    },
+    "tooltip_share": {
+        "message": "Teile diese App!",
+        "description": "Tooltip für den Teilen-Button"
+    },
+    "tooltip_refresh": {
+        "message": "Ändere sofort den Hintergrund",
+        "description": "Tooltip für den Refresh-Button"
+    },
+    "tooltip_refresh_clicked": {
+        "message": "Wallpaper wurde geändert!",
+        "description": "Tooltip für den Refresh-Button nachdem er geklickt wurde"
+    },
+    "snackbar_shared_message": {
+        "message": "Link wurde in die Zwischenablage kopiert!",
+        "description": "Snackbar Text nachdem der Share-Button gedrückt wurde"
+    },
+    "snackbar_shared_action": {
+        "message": "Ansehen",
+        "description": "Snackbar Action Text nachdem der Share-Button gedrückt wurde"
+    },
+    "snackbar_no_folder_selected_message": {
+        "message": "Kein Ordner ausgewählt.",
+        "description": "Snackbar Text wenn der Nutzer versucht, etwas zu tun, für das ein Ordner ausgewählt sein muss."
+    },
+    "snackbar_no_folder_selected_action": {
+        "message": "Auswählen",
+        "description": "Snackbar Action Text, um einen Ordner auszuwählen."
+    },
+    "button_review": {
+        "message": "Bewerten",
+        "description": "Button: Bewerten"
+    },
+    "icon_actionbar_1": {
+        "message": "share",
+        "description": "Icon des ersten Buttons neben dem rechten Menü (von rechts aus)"
+    },
+    "icon_actionbar_2": {
+        "message": "refresh",
+        "description": "Icon des zweiten Buttons neben dem rechten Menü (von rechts aus)"
+    },
+    "icon_menu_right": {
+        "message": "more_vert",
+        "description": "Icon des rechten Menüs"
+    },
+    "wallpaper_location_headline": {
+        "message": "Wallpaper-Pfad",
+        "description": "Überschrift der Seite mit den allgemeinen Einstellungen"
+    },
+    "keyboard_shortcuts_headline": {
+        "message": "Tastenkürzel",
+        "description": "Überschrift der Seite mit den Einstellungen für die Tastenkürzel"
+    },
+    "btn_choose_folder": {
+        "message": "Öffnen",
+        "description": "Beschriftung für den Button um einen Ordner zu wählen"
+    },
+    "property_headline_0": {
+        "message": "Neuer Hintergrund alle&nbsp;",
+        "description": "Erster Eintrag in den allgemeinen Einstellungen"
+    },
+    "property_headline_1": {
+        "message": "Wähle die Hintergründe zufällig",
+        "description": "Zweiter Eintrag in den allgemeinen Einstellungen"
+    },
+    "property_headline_2": {
+        "message": "Layout",
+        "description": "Dritter Eintrag in den allgemeinen Einstellungen"
+    },
+    "array_layout_mode": {
+        "message": "[\"Zentriert\",\"Zugeschnitten\",\"Angepasst\"]",
+        "description": "Array used to store layout options"
+    },
+    "array_delay_unit": {
+        "message": "[\"Minuten\",\"Stunden\",\"Tage\"]",
+        "description": "Array mit den Interval-Einheiten"
+    },
+    "page_about_body": {
+        "message": "Mit dieser App bekommst du in frei wählbaren Intervalle neue Wallpapers aus deinen Ordnern angezeigt, zufällig oder nacheinander.",
+        "description": "Haupttext der About Seite"
+    },
+    "page_about_support_hint": {
+        "message": "Wenn du dich heute besonders gönnerhaft fühlst, unterstütz mich doch ;)",
+        "description": "Unterstützungshinweis"
+    },
+    "copyright": {
+        "message": "$name$ $symbol$ $year$",
+        "description": "Genutzt um den Copyright-Text zusammenzusetzen",
+        "placeholders": {
+            "symbol": {
+                "content": "\u00A9",
+                "example": "Das Copyright-Symbol"
+            },
+            "name": {
+                "content": "$1",
+                "example": "Ein Name"
+            },
+            "year": {
+                "content": "$2",
+                "example": "Das aktuelle Jahr"
+            }
+        }
+    },
+    "prefix__google_drive": {
+        "message": "Drive",
+        "description": "Pfad Prefix für Google Drive"
+    },
+    "prefix__google_drive_shared": {
+        "message": "Freigegeben",
+        "description": "Pfad Prefix für freigegebene Dateien"
+    },
+    "prefix__my_files": {
+        "message": "Meine Dateien",
+        "description": "Pfad Prefix für Meine Dateien"
+    },
+    "prefix__usb_device": {
+        "message": "USB Gerät",
+        "description": "Pfad Prefix für USB Geräte"
+    },
+    "prefix__android_audio": {
+        "message": "Musik",
+        "description": "Pfad Prefix für Musik"
+    },
+    "prefix__android_images": {
+        "message": "Bilder",
+        "description": "Pfad Prefix für Bilder"
+    },
+    "prefix__android_videos": {
+        "message": "Bilder",
+        "description": "Pfad Prefix für Videos"
+    },
+    "prefix__android_media": {
+        "message": "Medien",
+        "description": "Pfad Prefix, falls weder Musik, Bilder, noch Videos"
+    },
+    "prefix__android_provided": {
+        "message": "Dienst",
+        "description": "Pfad Prefix für Dienste"
+    },
+    "currency": {
+        "message": "€",
+        "description": "Währungs-Symbol"
     }
-  }
 }

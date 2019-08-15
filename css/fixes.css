@@ -1,0 +1,31 @@
+.fix__overflow {
+    overflow: visible;
+}
+
+.fix__textbox_height {
+    margin: -20px 0px;
+}
+
+.fix__width_auto {
+    width: auto;
+}
+
+.fix__text_align_center {
+    text-align: center;
+}
+
+.fix__menu_bottom > .mdl-menu__container {
+    bottom: 24px !important;
+}
+
+.fix__position_relative {
+    position: relative;
+}
+
+.fix__outline_none {
+    outline: none !important;
+}
+
+.fix__height_auto {
+    height: auto;
+}

@@ -1,23 +1,24 @@
-/*
-Material Switches:
-  Simple change from left-aligned to right aligned
-*/
 .mdl-switch__thumb {
-  right: 16px;
-  left: unset;
-  transition-property: right; }
-  .mdl-switch.is-checked .mdl-switch__thumb {
-    right: 0px;
-    left: unset; }
-.mdl-switch__track {
-  right: 0px;
-  left: unset;
+    right: 16px;
+    left: unset;
+    transition-property: right;
 }
+
+.mdl-switch.is-checked .mdl-switch__thumb {
+    right: 0px;
+    left: unset;
+}
+
+.mdl-switch__track {
+    right: 0px;
+    left: unset;
+}
+
 .mdl-switch.is-upgraded {
-    padding-left: 0px; }
+    padding-left: 0px;
+}
 
 .container-fluid {
-    position: absolute;
     bottom: 16px;
     top: 16px;
     left: 0;
@@ -27,27 +28,47 @@ Material Switches:
 }
 
 .mdl-tooltip-forced {
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  z-index: 999;
-  background: rgba(97,97,97, 0.9);
-  border-radius: 2px;
-  color: rgb(255,255,255);
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 14px;
-  max-width: 240px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 16px;
-  text-align: center;
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+    z-index: 999;
+    background: rgba(97, 97, 97, 0.9);
+    border-radius: 2px;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    max-width: 240px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+    text-align: center;
 }
 
 .mdl-textfield__input {
-  cursor: default;
+    cursor: default;
+}
+
+.centered {
+    margin: auto;
+}
+
+.container__app_bar .appbar {
+    transition: margin-top 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.container__app_bar .appbar.appbar--invisible {
+    margin-top: -64px;
+}
+
+.container__app_bar.is-small-screen .appbar.appbar--invisible {
+    margin-top: -56px;
+}
+
+.container__app_bar .appbar.appbar--invisible {
+    box-shadow: none;
 }

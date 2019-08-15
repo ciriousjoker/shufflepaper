@@ -1,49 +1,47 @@
 {
-  "manifest_version": 2,
-  "name": "ShufflePaper",
-  "short_name": "ShufflePaper",
-  "version": "1.2.0",
-  "description": "Choose a folder and have your Chromebook automatically shuffle through the wallpapers in it!",
-  "minimum_chrome_version": "38",
-  "default_locale": "en",
-  "icons": {
-    "16":   "assets/ic_launcher_16.png",
-    "48":   "assets/ic_launcher_48.png",
-    "128":  "assets/ic_launcher_128.png",
-    "512":  "assets/ic_launcher_512.png"
-  },
-  "permissions": [
-    "wallpaper",
-    "alarms",
-    "clipboardWrite",
-    "storage",
-    {
-      "fileSystem": [
-        "retainEntries",
-        "directory"
-      ]
-    }
-  ],
-  "app": {
-    "background": {
-      "scripts": [
-        "js/Helper.js",
-        "js/Constants.js",
-        "js/SharedPreferences.js",
-        "js/WallpaperManager.js",
-        "js/BackgroundService.js"
-      ]
-    }
-  },
-  "commands": {
-    "cmdNew": {
-        "suggested_key": {
-          "default": "Ctrl+Shift+1",
-          "chromeos": "Search+W"
+    "manifest_version": 2,
+    "name": "__MSG_app_name__",
+    "version": "2.0.0",
+    "description": "__MSG_app_description__",
+    "minimum_chrome_version": "38",
+    "default_locale": "en",
+    "icons": {
+        "16": "assets/appicon_16.png",
+        "19": "assets/appicon_19.png",
+        "38": "assets/appicon_38.png",
+        "48": "assets/appicon_48.png",
+        "96": "assets/appicon_96.png",
+        "128": "assets/appicon_128.png",
+        "192": "assets/appicon_192.png",
+        "256": "assets/appicon_256.png",
+        "512": "assets/appicon_512.png"
+    },
+    "author": "Philipp Bauer",
+    "permissions": [
+        "wallpaper",
+        "alarms",
+        "notifications",
+        "clipboardWrite",
+        "storage",
+        {
+            "fileSystem": ["retainEntries", "directory"]
         },
-        "global": true,
-        "description": "Create new window"
-    }
-  },
-  "offline_enabled": true
+        "https://shufflepaper.web.app/"
+    ],
+    "app": {
+        "background": {
+            "scripts": [
+                "js/Constants.js",
+                "js/Helper.js",
+                "js/AssetManager.js",
+                "js/NotificationManager.js",
+                "js/WindowManager.js",
+                "js/FilesystemManager.js",
+                "js/SharedPreferences.js",
+                "js/WallpaperManager.js",
+                "js/BackgroundService.js"
+            ]
+        }
+    },
+    "offline_enabled": true
 }
