@@ -1,7 +1,7 @@
 # ShufflePaper
 A wallpaper manager for Chrome OS.
 
-Wallpapers are picked at random or alphanumerically in an interval depending on your choice.
+Wallpapers are picked randomly or in order in an interval depending on your choice.
 
 ### Table of contents
 - [Features](#features)
@@ -64,11 +64,10 @@ Wallpapers are picked at random or alphanumerically in an interval depending on 
 
 ### Screenshots
 
-<img src="screenshots/en/ScreenshotGeneral.png"/>
-
-|                      Delay                       |                      About                       |
+|                      Main (en)                       |                      About (en)                       |
 | ------------------------------------------------ | ------------------------------------------------ |
-| <img src="screenshots/en/ScreenshotDelay.png"/>  | <img src="screenshots/en/ScreenshotAbout.png"/>  |
+| <img src="screenshots/en/en_main.png"/>  | <img src="screenshots/en/en_about.png"/>  |
+| <img src="screenshots/de/de_main.png"/>  | <img src="screenshots/de/de_about.png"/>  |
 
 ## Installation
 
@@ -76,4 +75,4 @@ Wallpapers are picked at random or alphanumerically in an interval depending on 
 
 Only Chrome OS devices are supported as the [wallpaper api](https://developer.chrome.com/apps/wallpaper) isn't available on other platforms.
 
-[Click here](https://github.com/CiriousJoker/ShufflePaper/releases/latest) to go to the latest release here on Github.
+[Or click here](https://github.com/CiriousJoker/ShufflePaper/releases/latest) to go to the latest release here on Github.
