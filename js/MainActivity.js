@@ -32,7 +32,7 @@ async function loadDynamicUI() {
     $("#placeholderInsertVersion").html(`v${chrome.runtime.getManifest().version}`);
 
     // Profile picture in about page
-    const url = await getAsset("profilepicture", 96, "png", true);
+    const url = await getAsset("profilepicture", 512, "png", true);
     $(".profile_picture_img").attr("src", `${url}`);
 }
 
@@ -74,7 +74,7 @@ function onClickShareApp() {
         getString("snackbar_shared_message"),
         getString("snackbar_shared_action"),
         () => {
-            window.open(Constants.Defaults.url_homepage);
+            window.open(Constants.Defaults.url_homepage, "blank");
         },
         4000
     );

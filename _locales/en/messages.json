@@ -1,10 +1,14 @@
 {
     "app_name": {
-        "message": "ShufflePaper",
+        "message": "ShufflePaper - Randomize your wallpapers",
         "description": "App name"
     },
+    "app_short_name": {
+        "message": "ShufflePaper",
+        "description": "App short name"
+    },
     "app_description": {
-        "message": "Choose a folder and have your Chromebook automatically shuffle through the wallpapers in it!",
+        "message": "Automatically shuffle through a folder of wallpapers!",
         "description": "App description"
     },
     "app_slogan": {
@@ -38,7 +42,7 @@
         "description": "Additional update title for v1.3.0."
     },
     "notification_update_message_v_1_3_0": {
-        "message": "For this update, all settings had to be reset. Please set them again manually. Sorry for the inconvenience.",
+        "message": "For this update, all settings had to be reset. Click here to set them again manually. Sorry for the inconvenience.",
         "description": "Additional update message for v1.3.0."
     },
     "notification_error__folder_unreadable_title": {

@@ -44,13 +44,13 @@ async function readFolderContent(entry) {
                     skipped: arrSkipped
                 });
             },
-            err => {
+            async err => {
                 NotificationManager.show(
                     Constants.NotificationIds.error__folder_unreadable,
                     {
                         type: "basic",
                         title: getString("notification_error__folder_unreadable_title"),
-                        iconUrl: getAsset("warning", 48),
+                        iconUrl: await getAsset("warning", 48),
                         message: getString("notification_error__folder_unreadable_message"),
                         requireInteraction: true
                     },

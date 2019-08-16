@@ -1,11 +1,12 @@
 async function getAsset(id, resolution, extension, remote) {
     if (remote) {
         let uri;
+        const cache_key = `${Constants.Key.cached_profile_picture}_${resolution}_${extension}`;
         try {
             uri = await _getRemoteAsset(id, resolution);
-            await SharedPreferences.set(Constants.Key.cached_profile_picture, uri, "local");
+            await SharedPreferences.set(cache_key, uri, "local");
         } catch (e) {
-            uri = await SharedPreferences.get(Constants.Key.cached_profile_picture, undefined, "local");
+            uri = await SharedPreferences.get(cache_key, undefined, "local");
         }
 
         if (isdef(uri)) {
@@ -23,7 +24,9 @@ function _getAssetFilename(id, resolution, extension) {
     return `${id}${separator}${resolution || ""}.${_getAssetExtension(resolution, extension)}`;
 }
 function _getAssetExtension(resolution, extension) {
-    return isdef(resolution) ? extension || "png" : "svg";
+    const ret = isdef(resolution) ? extension || "png" : "svg";
+    console.log(ret);
+    return ret;
 }
 
 async function _getRemoteAsset(id, resolution, extension) {

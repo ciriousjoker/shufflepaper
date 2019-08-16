@@ -63,10 +63,10 @@ var Constants = {
             chrome.i18n.getMessage("copyright", [chrome.runtime.getManifest().author, new Date().getFullYear()]) +
             "<br />v" +
             chrome.runtime.getManifest().version,
-        url: `https://chrome.google.com/webstore/detail/${chrome.runtime.id}`,
-        url_reviews: `https://chrome.google.com/webstore/detail/${chrome.runtime.id}/reviews`,
-        url_homepage: `https://shufflepaper.web.app`,
+        url: `https://shufflepaper.web.app/link/app/webstore`,
+        url_reviews: `https://shufflepaper.web.app/link/app/webstore/reviews`,
+        url_homepage: `https://shufflepaper.web.app/link/app/homepage`,
         url_server: `https://shufflepaper.web.app/server`,
-        url_paypal: `https://paypal.me/itsmephilippbauer`
+        url_paypal: `https://shufflepaper.web.app/link/app/donate`
     }
 };

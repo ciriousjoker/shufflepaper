@@ -25,7 +25,7 @@ function compareVersion(v1, v2) {
 }
 
 function isVersionJump(version, currentVersion, previousVersion) {
-    return compareVersion(previousVersion, currentVersion) == -1 && compareVersion(version, currentVersion) >= 0;
+    return compareVersion(currentVersion, version) >= 0 && compareVersion(version, previousVersion) == 1;
 }
 
 async function sleep(ms) {
