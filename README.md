@@ -21,7 +21,7 @@ Wallpapers are picked randomly or in order in an interval depending on your choi
 #### v2.0.0:
 - **New icon**
 - **New design**
-- **Feature:** Expanded possible folders to everything currently supported by Chrome OS
+- **Feature:** More folder types can be selected
 - **Feature:** Subfolders are now included when searching for the next image
 - **Feature:** The number of images and non-images is now displayed at the top
 - **Feature:** Improved path formatting
@@ -41,23 +41,23 @@ Wallpapers are picked randomly or in order in an interval depending on your choi
 - **Bugfix:** Folder couldn't be selected properly
 
 #### v1.1.0:
-- **Feature:** 3 different wallpaper modes (stretched, centered & cropped)
+- **Feature:** 3 different layouts (stretched, centered or cropped)
 
 #### v1.0.0:
-- **Feature:** New design
+- **New design**
 - **Feature:** Customizable delay between wallpaper changes
 - **Feature:** Share button
 - **Stability:** Improved error handling
 - **Bugfixes**
-- **Languages:** Added German
+- **New Language:** German
 
 #### v0.9.2:
-- **Bugfix**
+- **Bugfixes**
 
 #### v0.9.1:
-- **Bugfix:** External folder paths werern't formatted properly
-- **Feature:** Interface improvements
-- **Stability:** Now checks if the next file is actually an image
+- **Improved design**
+- **Bugfix:** External folder paths weren't formatted properly
+- **Stability:** Now checks if the next file is actually an image before setting it as a wallpaper
 
 #### v0.9.0:
 - **Initial release**
