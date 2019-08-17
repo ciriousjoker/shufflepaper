@@ -249,6 +249,7 @@ async function storePreferences() {
 
 async function storeAlarmPreferences() {
     const isAlarmEnabled = $("#cb_use_interval_checkbox")[0].checked;
+    await SharedPreferences.set(Constants.Key.use_interval, isAlarmEnabled);
     AlarmManager.toggle(isAlarmEnabled);
 }
 
