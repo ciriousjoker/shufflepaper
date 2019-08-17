@@ -19,7 +19,7 @@ Wallpapers are picked randomly or in order in an interval depending on your choi
 
 ### Changelog
 #### v2.0.1:
-- Bugfix: Visual inconsistency
+- **Bugfix:** Visual inconsistency
 
 #### v2.0.0:
 - **New icon**
