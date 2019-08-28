@@ -19,30 +19,50 @@ async function getRoot() {
 }
 
 async function readFolderContent(entry) {
-    return new Promise((resolve, reject) => {
-        entry.createReader().readEntries(
-            async result => {
-                const arrImages = [];
-                const arrSkipped = [];
+    const reader = entry.createReader();
 
-                for (const entry of result) {
-                    if (entry.isDirectory) {
-                        const contentSubfolder = await readFolderContent(entry);
-                        arrImages.push(...contentSubfolder.images);
-                        arrSkipped.push(...contentSubfolder.skipped);
-                    } else {
-                        if (_isAllowedImage(entry)) {
-                            arrImages.push(entry);
+    const ret = await recurseReadFolderContent(reader);
+
+    ret.images = ret.images.sort((a, b) => a.name.localeCompare(b.name));
+
+    return ret;
+}
+
+async function recurseReadFolderContent(reader) {
+    return new Promise(async (resolve, reject) => {
+        const arrImages = [];
+        const arrSkipped = [];
+
+        reader.readEntries(
+            async result => {
+                if (result.length == 0) {
+                    resolve({
+                        images: [],
+                        skipped: []
+                    });
+                    return;
+                } else {
+                    for (const entry of result) {
+                        if (entry.isDirectory) {
+                            const contentSubfolder = await recurseReadFolderContent(entry.createReader());
+                            arrImages.push(...contentSubfolder.images);
+                            arrSkipped.push(...contentSubfolder.skipped);
                         } else {
-                            arrSkipped.push(entry);
+                            if (_isAllowedImage(entry)) {
+                                arrImages.push(entry);
+                            } else {
+                                arrSkipped.push(entry);
+                            }
                         }
                     }
+                    const folderContent = await recurseReadFolderContent(reader);
+                    arrImages.push(...folderContent.images);
+                    arrSkipped.push(...folderContent.skipped);
+                    resolve({
+                        images: arrImages,
+                        skipped: arrSkipped
+                    });
                 }
-
-                resolve({
-                    images: arrImages,
-                    skipped: arrSkipped
-                });
             },
             async err => {
                 NotificationManager.show(

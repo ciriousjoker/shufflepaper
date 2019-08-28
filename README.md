@@ -18,6 +18,10 @@ Wallpapers are picked randomly or in order in an interval depending on your choi
 - 3 different wallpaper modes (stretched, centered & cropped)
 
 ### Changelog
+
+#### v2.0.2:
+- **Bugfix:** Only the first 100 files were detected in a folder
+
 #### v2.0.1:
 - **Bugfix:** Visual inconsistency
 
