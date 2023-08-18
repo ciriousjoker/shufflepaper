@@ -1,3 +1,15 @@
+async function reloadCurrentWallpaper() {
+    const rootEntry = await getRoot();
+
+    const folderContent = await readFolderContent(rootEntry);
+
+    const currentId = await SharedPreferences.get(Constants.Key.current_file_id);
+
+    await _setWallpaper(folderContent.images[currentId]);
+
+    await SharedPreferences.set(Constants.Key.current_file_id, currentId);
+}
+
 async function loadNextWallpaper() {
     const rootEntry = await getRoot();
 

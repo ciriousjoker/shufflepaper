@@ -106,6 +106,7 @@ async function onClickDelayUnit(value) {
 async function onClickLayoutMode(value) {
     console.log("Selected layout mode: ", value);
     await SharedPreferences.set(Constants.Key.layout_mode, value);
+    reloadCurrentWallpaper()
 }
 
 function setupOnClickHandlers() {
