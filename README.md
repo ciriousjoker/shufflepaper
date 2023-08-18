@@ -19,6 +19,10 @@ Wallpapers are picked randomly or in order in an interval depending on your choi
 
 ### Changelog
 
+#### v2.1.0:
+- **Feature:** Reload the current wallpaper when switching the layout
+- **Bugfix:** "Stretched" and "Centered" were switched in the UI
+
 #### v2.0.2:
 - **Bugfix:** Only the first 100 files were detected in a folder
 
