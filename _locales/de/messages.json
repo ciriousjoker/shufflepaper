@@ -194,7 +194,7 @@
         "description": "Dritter Eintrag in den allgemeinen Einstellungen"
     },
     "array_layout_mode": {
-        "message": "[\"Zentriert\",\"Zugeschnitten\",\"Angepasst\"]",
+        "message": "[\"Zentriert\",\"Angepasst\",\"Zugeschnitten\"]",
         "description": "Array used to store layout options"
     },
     "array_delay_unit": {

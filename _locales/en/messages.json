@@ -190,7 +190,7 @@
         "description": "Third settings item in the general settings"
     },
     "array_layout_mode": {
-        "message": "[\"cropped\",\"centered\",\"stretched\"]",
+        "message": "[\"cropped\",\"stretched\",\"centered\"]",
         "description": "Array used to store layout options"
     },
     "array_delay_unit": {
